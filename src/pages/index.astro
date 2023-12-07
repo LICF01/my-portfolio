@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import "@fontsource-variable/inter";
 import Header from "@/components/sections/Header.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Container from "@/components/ui/Container.astro";
 
 
 ---
@@ -16,7 +18,10 @@ import Header from "@/components/sections/Header.astro";
 	</head>
   <body class="font-sans bg-background text-foreground group">
     <main>
+	<Container>
       <Header/>
+	  <Hero/>
+	</Container>
     </main>
   </body>
 

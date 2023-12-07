@@ -8,7 +8,7 @@ type Props = {
 const { class: className } = Astro.props;
 ---
 
-<div class={twMerge("whitespace-nowrap font-display bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 bg-clip-text text-transparent border border-foreground px-3 py-2 rounded-md", className)}>
+<div class={twMerge("text-md font-normal whitespace-nowrap font-display  border border-foreground/30 px-4 py-2 rounded-md", className)}>
   <span>Lucas</span>
   <span>Cubilla</span>
 </div>
