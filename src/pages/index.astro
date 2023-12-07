@@ -1,4 +1,8 @@
 ---
+import "../styles/global.css";
+import "@fontsource-variable/inter";
+import Header from "@/components/sections/Header.astro";
+
 
 ---
 
@@ -8,9 +12,12 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>lucasc.dev</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <body class="font-sans bg-background text-foreground group">
+    <main>
+      <Header/>
+    </main>
+  </body>
+
 </html>

@@ -1,0 +1,25 @@
+---
+const links = [
+  {
+    title: "Blog",
+    url: "#blog",
+  },
+  {
+    title: "About",
+    url: "#about",
+  },
+];
+---
+
+<div class="ml-auto hidden items-center gap-8 lg:flex">
+  {
+    links.map((link, index) => (
+      <a
+        href={link.url}
+        class="inline-block text-sm  transition hover:text-white"
+      >
+        {link.title}
+      </a>
+    ))
+  }
+</div>

@@ -1,0 +1,24 @@
+---
+import Container from "../ui/Container.astro";
+import Logo from "../ui/Logo.astro";
+import Navigation from "../ui/Navigation.astro";
+---
+
+<div
+  class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg px-8"
+>
+  <header>
+    <Container>
+      <nav class="flex items-center justify-between py-4">
+        <div>
+          <a href="/" class="inline-flex items-center">
+            <Logo class="text-lg font-normal lg:text-2xl" />
+          </a>
+        </div>
+
+        <Navigation />
+      </nav>
+    </Container>
+
+  </header>
+</div>
