@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 type ComponentProps = {
   id?: string;
-  variant?: "normal" | "title";
+  variant?: "normal" | "title" | "hero";
   class?: string;
   as: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
@@ -13,7 +13,8 @@ type ComponentProps = {
 const text = cva("mt-4 text-foreground font-light leading-[1.125] text-white", {
   variants: {
     variant: {
-      title: "text-4xl font-medium md:text-6xl text-white text-left",
+      title: "text-4xl font-medium text-white text-left uppercase",
+      hero: "text-4xl md:text-6xl font-medium text-white text-left",
       big: "text-3xl",
       medium: "text-left text-lg lg:text-xl",
       normal: "mx-auto leading-relaxed text-white/50 md:max-w-2xl lg:mt-8",

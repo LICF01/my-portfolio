@@ -1,0 +1,53 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import SectionWrapper from "@/components/ui/SectionWrapper.astro";
+import Text from "@/components/ui/Text.astro";
+import Icon from "astro-icon";
+
+const techs = [
+  { name: "html", iconName: "ri:html5-fill" },
+  { name: "css", iconName: "simple-icons:css3" },
+  { name: "js", iconName: "simple-icons:javascript" },
+  { name: "react", iconName: "simple-icons:react" },
+  { name: "tailwind", iconName: "simple-icons:tailwindcss" },
+  { name: "git", iconName: "simple-icons:git" },
+  { name: "github", iconName: "simple-icons:github" },
+  { name: "graphql", iconName: "simple-icons:graphql" },
+];
+---
+
+<SectionWrapper className="cards h-screen">
+  <Text as="h2" variant="title" class="flex-[0.5]">About me</Text>
+  <Divider />
+  <div class="flex flex-col">
+    <Text as="p" class="text-foreground text-2xl">
+      I'm a developer based in Asunción, Paraguay, self-taught that enjoys
+      coding.
+    </Text>
+
+    <Text as="p" class="text-foreground text-2xl">
+      Currently my focus is front-end development with React and Next.js, but
+      I'm always having fun with new technologies and looking forward in
+      learning new things.
+    </Text>
+    <Text as="p" class="text-foreground text-2xl">
+      Apart from coding, I enjoy UI design, linux, keyboards, science fiction
+      and thrillers related books podcasts and music. Somehow I learned to play
+      the cello and managed to enter an orchestra, but I'm not that good at it.
+    </Text>
+    <Text as="p" class="text-foreground text-2xl">
+      This website has been built with Astro btw.
+    </Text>
+  </div>
+
+  <div class="flex justify-between items-center mt-12 text-foreground-400">
+    {
+      techs.map(({ name, iconName }) => (
+        <Icon
+          name={iconName}
+          class="transition ease-in-out delay-150 h-12 w-12 hover:text-orange-400 cursor-pointer"
+        />
+      ))
+    }
+  </div>
+</SectionWrapper>
