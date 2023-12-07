@@ -4,25 +4,22 @@ import "@fontsource-variable/inter";
 import Header from "@/components/sections/Header.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Container from "@/components/ui/Container.astro";
-
-
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>lucasc.dev</title>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>lucasc.dev</title>
+  </head>
   <body class="font-sans bg-background text-foreground group">
+    <Header />
     <main>
-	<Container>
-      <Header/>
-	  <Hero/>
-	</Container>
+      <Container>
+        <Hero />
+      </Container>
     </main>
   </body>
-
 </html>

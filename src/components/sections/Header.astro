@@ -5,18 +5,18 @@ import Navigation from "../ui/Navigation.astro";
 ---
 
 <div
-  class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg"
+  class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg border-b border-foreground/10"
 >
-  <header>
+  <Container>
+    <header>
       <nav class="flex items-center justify-between py-4">
         <div>
           <a href="/" class="inline-flex items-center">
             <Logo />
           </a>
         </div>
-
         <Navigation />
       </nav>
-
-  </header>
+    </header>
+  </Container>
 </div>
