@@ -97,18 +97,20 @@ const experience = [
 </SectionWrapper>
 
 <script>
-  const cards = document.querySelectorAll(".card");
-  const wrapper = document.querySelector(".section-wrapper");
+  const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
+  const wrapper: HTMLElement | null =
+    document.querySelector(".section-wrapper");
 
-  wrapper.addEventListener("mousemove", function ($event) {
-    cards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      const x = $event.clientX - rect.left;
-      const y = $event.clientY - rect.top;
+  if (wrapper) {
+    wrapper.addEventListener("mousemove", function (e: MouseEvent) {
+      cards.forEach((card) => {
+        const rect: DOMRect = card.getBoundingClientRect();
+        const x: number = e.clientX - rect.left;
+        const y: number = e.clientY - rect.top;
 
-      console.log(x, y);
-      card.style.setProperty("--xPos", `${x}px`);
-      card.style.setProperty("--yPos", `${y}px`);
+        card.style.setProperty("--xPos", `${x}px`);
+        card.style.setProperty("--yPos", `${y}px`);
+      });
     });
-  });
+  }
 </script>
