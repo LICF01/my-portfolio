@@ -16,7 +16,9 @@ import Experience from "@/components/sections/Experience.astro";
     <meta name="generator" content={Astro.generator} />
     <title>lucasc.dev</title>
   </head>
-  <body class="font-sans bg-background text-foreground group antialiased">
+  <body
+    class="font-sans bg-background text-foreground group antialiased hover:bg-[radial-gradient(circle_at_var(--xPos)_var(--yPos),_var(--card-spotlight),_transparent_10%)]"
+  >
     <Header />
     <main>
       <Container>
@@ -27,3 +29,18 @@ import Experience from "@/components/sections/Experience.astro";
     </main>
   </body>
 </html>
+
+<script>
+  const body: HTMLElement | null = document.querySelector("body");
+
+  if (body) {
+    body.addEventListener("mousemove", function (e: MouseEvent) {
+      const rect: DOMRect = body.getBoundingClientRect();
+      const x: number = e.clientX - rect.left;
+      const y: number = e.clientY - rect.top;
+
+      body.style.setProperty("--xPos", `${x}px`);
+      body.style.setProperty("--yPos", `${y}px`);
+    });
+  }
+</script>
