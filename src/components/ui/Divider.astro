@@ -1,13 +1,18 @@
 ---
 import { twMerge } from "tailwind-merge";
-const { className } = Astro.props;
+
+type Props = {
+  class?: string;
+  direction?: "horizontal" | "vertical";
+};
+
+const { class: className, direction = "horizontal" } = Astro.props;
 ---
 
-<div class={twMerge("flex flex-col md:items-center pt-4 ", className)}>
-  <slot />
-</div>
-
-<div
-  class="h-px w-full bg-gradient-to-r from-white/30 via-white/10 to-transparent"
->
-</div>
+{
+  direction === "horizontal" ? (
+    <div class="w-full h-px bg-gradient-to-r from-white/30 via-white/30 to-transparent my-4" />
+  ) : (
+    <div class="w-px h-full bg-gradient-to-b from-white/30 via-white/10 to-transparent" />
+  )
+}

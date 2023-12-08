@@ -1,9 +1,13 @@
 ---
-
+import { twMerge } from "tailwind-merge";
+const { class: className } = Astro.props;
 ---
 
 <div
-  class="card p-[1px] w-full bg-foreground/10 bg-[radial-gradient(circle_150rem_at_0_0,_rgba(255,255,255,0),_transparent_0)] group-hover:bg-[radial-gradient(circle_100rem_at_var(--xPos)_var(--yPos),_var(--card-spotlight-border),_transparent_35%)] rounded-lg flex justify-center items-center relative transition-all duration-75 before:h-full before:w-full before:absolute before:top-0 before:left-0 before:rounded-lg before:bg-[radial-gradient(circle_at_var(--xPos)_var(--yPos),_var(--card-spotlight),_transparent_35%)] before:opacity-100 before:transition-all before:duration-75 before:group-hover:opacity-100"
+  class={twMerge(
+    "p-[1px] w-full bg-foreground/10 bg-[radial-gradient(circle_150rem_at_0_0,_rgba(255,255,255,0),_transparent_0)] group-hover:bg-[radial-gradient(circle_100rem_at_var(--xPos)_var(--yPos),_var(--card-spotlight-border),_transparent_35%)] rounded-lg flex justify-center items-center relative transition-all duration-75 before:h-full before:w-full before:absolute before:top-0 before:left-0 before:rounded-lg before:bg-[radial-gradient(circle_at_var(--xPos)_var(--yPos),_var(--card-spotlight),_transparent_35%)] before:opacity-100 before:transition-all before:duration-75 before:group-hover:opacity-100",
+    className,
+  )}
 >
   <div
     class="bg-background p-6 lg:p-12 rounded-lg w-full h-full transition-all duration-75"

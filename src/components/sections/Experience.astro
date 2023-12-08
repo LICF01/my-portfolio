@@ -44,51 +44,47 @@ const experience = [
       ? experience.map(async (el) => {
           return (
             <div class="flex w-full gap-6 group">
-              <div>
-                <div class="flex justify-start gap-2 uppercase">
-                  <Text as="p" variant="normal">
-                    {el.from}
+              <div class="ml-4">
+                <div class="w-5 h-5 rounded-full border border-white/30" />
+                <div class="h-full w-0 border-r border-white/30 mx-auto" />
+              </div>
+              <div class="flex flex-col ">
+                <div class="[&_p]:mt-0 flex flex-col flex-1 gap-2">
+                  <Text as="p" variant="paragraph" class="uppercase text-sm">
+                    {el.from + " - " + el.to}
                   </Text>
-                  <Text as="p" variant="normal">
-                    -
+                  <Text as="p" variant="lead">
+                    {el.role}
                   </Text>
-                  <Text as="p" variant="normal">
-                    {el.to}
+                  <Text as="h3" variant="lead" class="text-white/60 md:text-xl">
+                    {el.company}
                   </Text>
                 </div>
-                <Text as="p" variant="normal">
-                  {el.role}
-                </Text>
-              </div>
-              <SpotlightCard>
-                <div class="flex flex-col">
-                  <div class="[&_p]:mt-0 flex flex-col gap-2">
-                    <Text as="h3" variant="lead">
-                      {el.company}
-                    </Text>
-                  </div>
-                  <Divider />
+                <Divider />
+                <div class="flex-[1.8]">
                   <Text as="h3" variant="paragraph">
                     {el.description}
                   </Text>
-                  <ul class="list-disc ml-6">
-                    {el.tasks.map((el) => (
-                      <li>
-                        <Text as="p" variant="normal">
-                          {el}
-                        </Text>
-                      </li>
+                  {false && (
+                    <ul class="list-disc ml-6">
+                      {el.tasks.map((el) => (
+                        <li>
+                          <Text as="p" variant="normal">
+                            {el}
+                          </Text>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div class="flex flex-wrap gap-4 mt-8">
+                    {el.skills.map((el) => (
+                      <Text as="p" variant="normal">
+                        {el}
+                      </Text>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-                <div class="flex flex-wrap gap-4 mt-8">
-                  {el.skills.map((el) => (
-                    <Text as="p" variant="normal">
-                      {el}
-                    </Text>
-                  ))}
-                </div>
-              </SpotlightCard>
+              </div>
             </div>
           );
         })
