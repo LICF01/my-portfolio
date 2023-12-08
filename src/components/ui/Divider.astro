@@ -3,13 +3,11 @@ import { twMerge } from "tailwind-merge";
 const { className } = Astro.props;
 ---
 
-<div class="py-4">
-  <div class={twMerge("flex flex-col md:items-center ", className)}>
-    <slot />
-  </div>
+<div class={twMerge("flex flex-col md:items-center pt-4 ", className)}>
+  <slot />
+</div>
 
-  <div
-    class="h-px w-full bg-gradient-to-r from-white/30 via-white/10 to-transparent"
-  >
-  </div>
+<div
+  class="h-px w-full bg-gradient-to-r from-white/30 via-white/10 to-transparent"
+>
 </div>

@@ -5,6 +5,7 @@ import Header from "@/components/sections/Header.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Container from "@/components/ui/Container.astro";
 import About from "@/components/sections/About.astro";
+import Experience from "@/components/sections/Experience.astro";
 ---
 
 <html lang="en">
@@ -15,12 +16,13 @@ import About from "@/components/sections/About.astro";
     <meta name="generator" content={Astro.generator} />
     <title>lucasc.dev</title>
   </head>
-  <body class="font-sans bg-background text-foreground group">
+  <body class="font-sans bg-background text-foreground group antialiased">
     <Header />
     <main>
       <Container>
         <Hero />
         <About />
+        <Experience />
       </Container>
     </main>
   </body>

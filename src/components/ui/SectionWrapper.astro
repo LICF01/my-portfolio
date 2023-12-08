@@ -1,9 +1,29 @@
 ---
+import Divider from "@/components/ui/Divider.astro";
+import Text from "@/components/ui/Text.astro";
 import { twMerge } from "tailwind-merge";
 
-const { class: className } = Astro.props;
+type Props = {
+  class?: string;
+  title?: string;
+  description?: string;
+  divider?: boolean;
+};
+
+const { class: className, title, description, divider = true } = Astro.props;
 ---
 
 <section class={twMerge("relative w-full min-h-screen", className)}>
+  <div class="mb-8">
+    {
+      title && (
+        <Text as="h2" variant="title">
+          {title}
+        </Text>
+      )
+    }
+    {description && <Text as="p">{description}</Text>}
+    {divider && <Divider />}
+  </div>
   <slot />
 </section>

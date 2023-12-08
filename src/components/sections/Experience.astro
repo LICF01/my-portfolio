@@ -1,0 +1,114 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import SectionWrapper from "@/components/ui/SectionWrapper.astro";
+import SpotlightCard from "@/components/ui/SpotlightCard.astro";
+import Text from "@/components/ui/Text.astro";
+
+const experience = [
+  {
+    company: "SuenhoLucido",
+    from: "21/03/2022",
+    to: "present",
+    role: "Frontend Developer",
+    description:
+      "I am currently working as a Frontend Developer at SuenhoLucido, a company that develops software for different clients. I am responsible for maintaining, as well as developing new features.",
+    tasks: [
+      "Collaborated with the team to migrate the web application from MUI v4 to MUI v5, while implementing a new design with the addition of TypeScript, resulting in a modern user and development experience.",
+      "Took charge of identifying and rectifying user-reported bugs, ensuring a consistent and seamless user experience.",
+      "Continuously developed and refined key application features, elevating the overall user experience and functionality of the web app.",
+      "Introduced Playwright to the team for end-to-end testing, offering a modern solution and strengthening the application's testing processes.",
+    ],
+    skills: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "MUI",
+      "Styled Components",
+      "Playwright",
+      "Git",
+      "GitHub",
+      "GraphQL",
+      "Apollo Client",
+    ],
+  },
+];
+---
+
+<SectionWrapper
+  class="section-wrapper"
+  title="Experience"
+  description="Places were I have worked and the technologies I have used."
+>
+  {
+    experience
+      ? experience.map(async (el) => {
+          return (
+            <div class="flex w-full gap-6 group">
+              <div>
+                <div class="flex justify-start gap-2 uppercase">
+                  <Text as="p" variant="normal">
+                    {el.from}
+                  </Text>
+                  <Text as="p" variant="normal">
+                    -
+                  </Text>
+                  <Text as="p" variant="normal">
+                    {el.to}
+                  </Text>
+                </div>
+                <Text as="p" variant="normal">
+                  {el.role}
+                </Text>
+              </div>
+              <SpotlightCard>
+                <div class="flex flex-col">
+                  <div class="[&_p]:mt-0 flex flex-col gap-2">
+                    <Text as="h3" variant="title" class="text-2xl md:text-4xl">
+                      {el.company}
+                    </Text>
+                  </div>
+                  <Divider />
+                  <Text as="h3" variant="normal" class="">
+                    {el.description}
+                  </Text>
+                  <ul class="list-disc ml-6">
+                    {el.tasks.map((el) => (
+                      <li>
+                        <Text as="p" variant="normal">
+                          {el}
+                        </Text>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="flex flex-wrap gap-4 mt-8">
+                  {el.skills.map((el) => (
+                    <Text as="p" variant="normal">
+                      {el}
+                    </Text>
+                  ))}
+                </div>
+              </SpotlightCard>
+            </div>
+          );
+        })
+      : null
+  }
+</SectionWrapper>
+
+<script>
+  const cards = document.querySelectorAll(".card");
+  const wrapper = document.querySelector(".section-wrapper");
+
+  wrapper.addEventListener("mousemove", function ($event) {
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = $event.clientX - rect.left;
+      const y = $event.clientY - rect.top;
+
+      console.log(x, y);
+      card.style.setProperty("--xPos", `${x}px`);
+      card.style.setProperty("--yPos", `${y}px`);
+    });
+  });
+</script>
