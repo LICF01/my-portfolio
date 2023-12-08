@@ -5,19 +5,20 @@ import { twMerge } from "tailwind-merge";
 
 type ComponentProps = {
   id?: string;
-  variant?: "normal" | "title" | "hero";
+  variant?: "normal" | "title" | "hero" | "lead" | "paragraph";
   class?: string;
   as: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-const text = cva("text-foreground font-light leading-[1.125] text-white", {
+const textVariants = cva("text-white/50 text-left font-light", {
   variants: {
     variant: {
-      title: "text-4xl font-medium text-white text-left uppercase",
-      hero: "text-4xl md:text-6xl font-medium text-white text-left",
-      big: "text-3xl",
+      hero: "text-4xl md:text-6xl leading-[5rem] text-white/80",
+      title: "text-4xl font-medium uppercase text-white/80",
+      lead: "text-2xl md:text-2xl text-white/80",
       medium: "text-left text-lg lg:text-xl",
-      normal: "leading-relaxed text-white/50 mt-4",
+      normal: "leading-7 text-white/50 mt-4",
+      paragraph: "leading-7 text-white/50 [&:not(:first-child)]:mt-4",
     },
   },
   defaultVariants: { variant: "normal" },
@@ -28,6 +29,6 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & ComponentProps;
 const { variant, size, class: className, as: Tag, ...rest } = Astro.props;
 ---
 
-<Tag class={twMerge(text({ variant }), className)}>
+<Tag class={twMerge(textVariants({ variant, className }))}>
   <slot />
 </Tag>
