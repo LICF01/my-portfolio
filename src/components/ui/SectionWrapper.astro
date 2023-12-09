@@ -22,7 +22,13 @@ const { class: className, title, description, divider = true } = Astro.props;
         </Text>
       )
     }
-    {description && <Text as="p">{description}</Text>}
+    {
+      description && (
+        <Text as="p" variant="normal">
+          {description}
+        </Text>
+      )
+    }
     {divider && <Divider />}
   </div>
   <slot />

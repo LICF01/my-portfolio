@@ -1,0 +1,16 @@
+---
+import { twMerge } from "tailwind-merge";
+
+const { class: className } = Astro.props;
+---
+
+<span
+  class={twMerge(
+    "border border-white/10 rounded-lg px-2 cursor-pointer",
+    className,
+  )}
+>
+  <slot name="icon-l" />
+  <slot name="label" />
+  <slot name="icon-r" />
+</span>

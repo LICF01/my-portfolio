@@ -6,6 +6,7 @@ import Hero from "@/components/sections/Hero.astro";
 import Container from "@/components/ui/Container.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
+import Projects from "@/components/sections/Projects.astro";
 ---
 
 <html lang="en">
@@ -23,6 +24,7 @@ import Experience from "@/components/sections/Experience.astro";
         <Hero />
         <About />
         <Experience />
+        <Projects />
       </Container>
     </main>
   </body>
@@ -32,10 +34,20 @@ import Experience from "@/components/sections/Experience.astro";
   const body: HTMLElement | null = document.querySelector("body");
   const dividers: NodeListOf<HTMLElement> =
     document.querySelectorAll(".divider");
+  const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
 
   if (body) {
     body.addEventListener("mousemove", function (e: MouseEvent) {
       dividers.forEach((div) => {
+        const rect: DOMRect = div.getBoundingClientRect();
+        const x: number = e.clientX - rect.left;
+        const y: number = e.clientY - rect.top;
+
+        div.style.setProperty("--xPos", `${x}px`);
+        div.style.setProperty("--yPos", `${y}px`);
+      });
+
+      cards.forEach((div) => {
         const rect: DOMRect = div.getBoundingClientRect();
         const x: number = e.clientX - rect.left;
         const y: number = e.clientY - rect.top;

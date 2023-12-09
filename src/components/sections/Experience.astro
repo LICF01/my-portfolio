@@ -1,4 +1,5 @@
 ---
+import Badge from "@/components/ui/Badge.astro";
 import Divider from "@/components/ui/Divider.astro";
 import SectionWrapper from "@/components/ui/SectionWrapper.astro";
 import SpotlightCard from "@/components/ui/SpotlightCard.astro";
@@ -78,9 +79,11 @@ const experience = [
                   )}
                   <div class="flex flex-wrap gap-4 mt-8">
                     {el.skills.map((el) => (
-                      <Text as="p" variant="normal">
-                        {el}
-                      </Text>
+                      <Badge>
+                        <Text as="p" variant="normal" slot="label" class="m-0">
+                          {el}
+                        </Text>
+                      </Badge>
                     ))}
                   </div>
                 </div>
