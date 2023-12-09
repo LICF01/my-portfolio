@@ -1,0 +1,20 @@
+---
+import SpotlightCard from "@/components/ui/SpotlightCard.astro";
+import Technologies from "@/components/ui/Technologies.astro";
+import Text from "@/components/ui/Text.astro";
+
+const { data } = Astro.props;
+---
+
+<SpotlightCard>
+  <Text as="p" class="mt-0 text-sm pb-2">
+    {data.date.toLocaleDateString()}
+  </Text>
+  <Text as="h3" variant="lead">
+    {data.title}
+  </Text>
+  <Text as="p" variant="paragraph">
+    {data.description}
+  </Text>
+  <Technologies data={data.technologies} class="mt-4" />
+</SpotlightCard>

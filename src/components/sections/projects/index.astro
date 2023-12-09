@@ -1,0 +1,17 @@
+---
+import ProjectCard from "@/components/sections/projects/ProjectCard.astro";
+import SectionWrapper from "@/components/ui/SectionWrapper.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<SectionWrapper title="Projects" class="group">
+  <div class="flex flex-col lg:flex-row gap-8">
+    {
+      projects
+        .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+        .map(({ data }) => <ProjectCard data={data} />)
+    }
+  </div>
+</SectionWrapper>

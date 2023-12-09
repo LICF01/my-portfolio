@@ -1,0 +1,26 @@
+---
+import { twMerge } from "tailwind-merge";
+import Button from "@/components/ui/Button.astro";
+import { getEntries } from "astro:content";
+
+const { data, class: className } = Astro.props;
+
+const technologies = await getEntries(data);
+console.log(technologies);
+---
+
+<div class={twMerge("flex gap-2 flex-wrap", className)}>
+  {
+    technologies?.map(({ data }) => (
+      <Button
+        as="a"
+        variant="outline-dimmed"
+        size="md"
+        href={data.url}
+        target="_blank"
+      >
+        {data.name}
+      </Button>
+    ))
+  }
+</div>
