@@ -1,0 +1,8 @@
+{
+  "title": "GraphQL",
+  "web": "https://graphql.org/",
+  "icon": {
+    "type": "fontsource",
+    "src": "simple-icons:graphql"
+  }
+}

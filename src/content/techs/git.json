@@ -1,0 +1,8 @@
+{
+  "name": "Git",
+  "url": "https://git-scm.com/",
+  "icon": {
+    "type": "fontsource",
+    "src": "simple-icons:git"
+  }
+}

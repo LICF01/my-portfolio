@@ -1,0 +1,8 @@
+{
+  "name": "HTML",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  "icon": {
+    "type": "fontsource",
+    "src": "ri:html5-fill"
+  }
+}

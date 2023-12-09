@@ -1,0 +1,8 @@
+{
+  "name": "GitHub Rest Api",
+  "url": "https://docs.github.com/en/rest?apiVersion=2022-11-28",
+  "icon": {
+    "type": "fountsource",
+    "src": "simple-icons:github"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "TailwindCSS",
+  "url": "https://tailwindcss.com/",
+  "icon": {
+    "type": "fontsource",
+    "src": "simple-icons:tailwindcss"
+  }
+}
