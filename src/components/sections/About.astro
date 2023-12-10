@@ -1,47 +1,28 @@
 ---
-import Divider from "@/components/ui/Divider.astro";
 import SectionWrapper from "@/components/ui/SectionWrapper.astro";
 import Text from "@/components/ui/Text.astro";
-import Icon from "astro-icon";
-
-const techs = [
-  { name: "html", iconName: "ri:html5-fill" },
-  { name: "css", iconName: "simple-icons:css3" },
-  { name: "js", iconName: "simple-icons:javascript" },
-  { name: "react", iconName: "simple-icons:react" },
-  { name: "tailwind", iconName: "simple-icons:tailwindcss" },
-  { name: "git", iconName: "simple-icons:git" },
-  { name: "github", iconName: "simple-icons:github" },
-  { name: "graphql", iconName: "simple-icons:graphql" },
-];
 ---
 
 <SectionWrapper title="About">
-  <div>
-    <Text as="p" variant="paragraph">
-      I'm a developer based in Asunción, Paraguay, self-taught that enjoys
-      coding.
-      <br />
-       Currently my focus is front-end development with React and Next.js, but
-      I'm always having fun with new technologies and looking forward in
-      learning new things.
-      <br />
-       Apart from coding, I enjoy UI design, linux, keyboards, science fiction
-      and thrillers related books podcasts and music. Somehow I learned to play
-      the cello and managed to enter an orchestra, but don't set your hopes too
-      high about this haha.
-    </Text>
-    <Text as="p">This website has been built with Astro btw.</Text>
-  </div>
-
-  <!-- <div class="flex justify-between items-center mt-12 text-foreground-400"> -->
-  <!--   { -->
-  <!--     techs.map(({ name, iconName }) => ( -->
-  <!--       <Icon -->
-  <!--         name={iconName} -->
-  <!--         class="transition ease-in-out delay-150 h-12 w-12 hover:text-orange-400 cursor-pointer" -->
-  <!--       /> -->
-  <!--     )) -->
-  <!--   } -->
-  <!-- </div> -->
+  <Text as="p" variant="paragraph">
+    I'm a developer based in Asunción, Paraguay, self-taught and passionate
+    about tech. My current focus is on front-end development, primarily using
+    React, Next.js and Astro. 🚀
+  </Text>
+  <Text as="p" variant="paragraph">
+    Apart from coding, my interests include UI design, Linux 🐧, keyboards ⌨️,
+    and science fiction and thriller-related books, as well as podcasts as I
+    want to improve my english, and also music.
+  </Text>
+  <Text as="p" variant="paragraph">
+    I've also learned to play the cello 🎻 and even joined an orchestra, it's
+    been an interesting journey. Though I have much to explore in music, after
+    serious consideration, I've decided to primarily focus on software
+    development.
+  </Text>
+  <Text as="p" variant="paragraph">
+    You can expect to find in me a hard-working, responsible, and reliable
+    person, who can work both independently and in a team. I'm always looking to
+    improve my skills and learn new things.
+  </Text>
 </SectionWrapper>
