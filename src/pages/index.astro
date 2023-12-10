@@ -7,15 +7,25 @@ import Container from "@/components/ui/Container.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Projects from "@/components/sections/projects/index.astro";
+import Footer from "@/components/sections/Footer.astro";
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>lucasc.dev</title>
+    <meta
+      name="description"
+      content="Lucas Cubilla's dev portfolio showcasing expertise in front-end development, including projects in React, JavaScript, and responsive web design."
+    />
+    <meta name="author" content="Lucas Cubilla" />
+    <meta
+      name="keywords"
+      content="Front-End Development, React, JavaScript, Web Design"
+    />
   </head>
   <body class="group font-sans bg-background text-foreground group antialiased">
     <Header />
@@ -25,6 +35,7 @@ import Projects from "@/components/sections/projects/index.astro";
         <About />
         <Experience />
         <Projects />
+        <Footer />
       </Container>
     </main>
   </body>
@@ -32,18 +43,9 @@ import Projects from "@/components/sections/projects/index.astro";
 
 <script>
   const body: HTMLElement | null = document.querySelector("body");
-  const header: HTMLElement | null = document.querySelector("#header");
   const dividers: NodeListOf<HTMLElement> =
     document.querySelectorAll(".divider");
   const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
-
-  if (header) {
-    const headerHeight = header.offsetHeight;
-    document.documentElement.style.setProperty(
-      "--header-height",
-      headerHeight + "px",
-    );
-  }
 
   if (body) {
     body.addEventListener("mousemove", function (e: MouseEvent) {
