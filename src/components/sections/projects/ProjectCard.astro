@@ -20,7 +20,7 @@ const { data } = Astro.props;
   </Text>
   <div class="flex mt-4">
     {
-      data.links.map((link) => (
+      data.links.map((link: { url: string; linkType: string }) => (
         <Button
           as="a"
           variant="link"

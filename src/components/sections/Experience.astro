@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntries } from "astro:content";
+import { getCollection } from "astro:content";
 
 import Badge from "@/components/ui/Badge.astro";
 import Divider from "@/components/ui/Divider.astro";
@@ -10,13 +10,11 @@ import Technologies from "@/components/ui/Technologies.astro";
 const experienceCollection = await getCollection("experience");
 const educationCollection = await getCollection("education");
 
-const experience = experienceCollection
-  .concat(educationCollection)
-  .sort((a, b) => {
+const experience = [...experienceCollection, ...educationCollection].sort(
+  (a, b) => {
     return a.data.from > b.data.from ? -1 : 1;
-  });
-
-console.log(experience);
+  },
+);
 ---
 
 <SectionWrapper
@@ -27,7 +25,7 @@ console.log(experience);
   <div class="flex flex-col">
     {
       experience
-        ? experience.map(async ({ data }, index) => {
+        ? experience.map(async ({ data }: { data: any }, index) => {
             return (
               <>
                 <div class="flex w-full gap-6 group pb-6">
@@ -63,17 +61,6 @@ console.log(experience);
                       <Text as="h3" variant="paragraph">
                         {data.description}
                       </Text>
-                      {false && (
-                        <ul class="list-disc ml-6">
-                          {el.tasks.map((el) => (
-                            <li>
-                              <Text as="p" variant="normal">
-                                {el}
-                              </Text>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                       {data.technologies && (
                         <Technologies data={data.technologies} class="mt-4" />
                       )}
@@ -87,4 +74,3 @@ console.log(experience);
     }
   </div>
 </SectionWrapper>
-
