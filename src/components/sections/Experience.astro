@@ -24,62 +24,63 @@ console.log(experience);
   title="Experience"
   description="Places were I have worked and the technologies I have used."
 >
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col">
     {
       experience
-        ? experience.map(async ({ data }) => {
+        ? experience.map(async ({ data }, index) => {
             return (
-              <div class="flex w-full gap-6 group">
-                <div class="ml-4">
-                  <div class="w-5 h-5 rounded-full border border-white/30" />
-                  <div class="h-full w-0 border-r border-white/30 mx-auto" />
-                </div>
-                <div class="flex flex-col ">
-                  <div class="[&_p]:mt-0 flex flex-col flex-1 gap-2">
-                    <div class="flex gap-2">
-                      <Text as="p" class="uppercase text-sm">
-                        {data.from.toLocaleString()}
+              <>
+                <div class="flex w-full gap-6 group pb-6">
+                  <div class="ml-4">
+                    <div class="w-5 h-5 bg-background rounded-full border border-white/20" />
+                    <div class="h-full w-0 border-r border-white/20 mx-auto" />
+                  </div>
+                  <div class="flex flex-col ">
+                    <div class="[&_p]:mt-0 flex flex-col flex-1 gap-2">
+                      <div class="flex gap-2">
+                        <Text as="p" class="uppercase text-sm">
+                          {data.from.toLocaleString()}
+                        </Text>
+                        <Text as="p" class="uppercase text-sm">
+                          -
+                        </Text>
+                        <Text as="p" class="uppercase text-sm">
+                          {data.to ? data.to?.toLocaleString() : "Present"}
+                        </Text>
+                      </div>
+                      <Text as="p" variant="lead">
+                        {data.role ? data.role : data.degree}
                       </Text>
-                      <Text as="p" class="uppercase text-sm">
-                        -
-                      </Text>
-                      <Text as="p" class="uppercase text-sm">
-                        {data.to ? data.to?.toLocaleString() : "Present"}
+                      <Text
+                        as="h3"
+                        variant="lead"
+                        class="text-white/60 md:text-xl"
+                      >
+                        {data.company ? data.company : data.institute}
                       </Text>
                     </div>
-                    <Text as="p" variant="lead">
-                      {data.role ? data.role : data.degree}
-                    </Text>
-                    <Text
-                      as="h3"
-                      variant="lead"
-                      class="text-white/60 md:text-xl"
-                    >
-                      {data.company ? data.company : data.institute}
-                    </Text>
-                  </div>
-                  <Divider />
-                  <div class="flex-[1.8]">
-                    <Text as="h3" variant="paragraph">
-                      {data.description}
-                    </Text>
-                    {false && (
-                      <ul class="list-disc ml-6">
-                        {el.tasks.map((el) => (
-                          <li>
-                            <Text as="p" variant="normal">
-                              {el}
-                            </Text>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {data.technologies && (
-                      <Technologies data={data.technologies} />
-                    )}
+                    <div class="flex-[1.8]">
+                      <Text as="h3" variant="paragraph">
+                        {data.description}
+                      </Text>
+                      {false && (
+                        <ul class="list-disc ml-6">
+                          {el.tasks.map((el) => (
+                            <li>
+                              <Text as="p" variant="normal">
+                                {el}
+                              </Text>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {data.technologies && (
+                        <Technologies data={data.technologies} class="mt-4" />
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </>
             );
           })
         : null
