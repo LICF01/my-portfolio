@@ -1,8 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-import Badge from "@/components/ui/Badge.astro";
-import Divider from "@/components/ui/Divider.astro";
 import SectionWrapper from "@/components/ui/SectionWrapper.astro";
 import Text from "@/components/ui/Text.astro";
 import Technologies from "@/components/ui/Technologies.astro";
@@ -10,11 +8,20 @@ import Technologies from "@/components/ui/Technologies.astro";
 const experienceCollection = await getCollection("experience");
 const educationCollection = await getCollection("education");
 
+type ExperienceData = CollectionEntry<"experience">["data"];
+type EducationData = CollectionEntry<"education">["data"];
+
+type CollectionData = ExperienceData | EducationData;
+
 const experience = [...experienceCollection, ...educationCollection].sort(
   (a, b) => {
     return a.data.from > b.data.from ? -1 : 1;
   },
 );
+
+function isExperienceData(data: CollectionData): data is ExperienceData {
+  return "role" in data;
+}
 ---
 
 <SectionWrapper
@@ -25,7 +32,7 @@ const experience = [...experienceCollection, ...educationCollection].sort(
   <div class="flex flex-col">
     {
       experience
-        ? experience.map(async ({ data }: { data: any }, index) => {
+        ? experience.map(async ({ data }: { data: CollectionData }, index) => {
             return (
               <>
                 <div class="flex w-full gap-6 group pb-6">
@@ -47,21 +54,21 @@ const experience = [...experienceCollection, ...educationCollection].sort(
                         </Text>
                       </div>
                       <Text as="p" variant="lead">
-                        {data.role ? data.role : data.degree}
+                        {isExperienceData(data) ? data.role : data.degree}
                       </Text>
                       <Text
                         as="h3"
                         variant="lead"
                         class="text-white/60 md:text-xl"
                       >
-                        {data.company ? data.company : data.institute}
+                        {isExperienceData(data) ? data.company : data.institute}
                       </Text>
                     </div>
                     <div class="flex-[1.8]">
                       <Text as="h3" variant="paragraph">
                         {data.description}
                       </Text>
-                      {data.technologies && (
+                      {isExperienceData(data) && (
                         <Technologies data={data.technologies} class="mt-4" />
                       )}
                     </div>

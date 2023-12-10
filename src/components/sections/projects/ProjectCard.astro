@@ -4,8 +4,11 @@ import Divider from "@/components/ui/Divider.astro";
 import SpotlightCard from "@/components/ui/SpotlightCard.astro";
 import Technologies from "@/components/ui/Technologies.astro";
 import Text from "@/components/ui/Text.astro";
+import type { CollectionEntry } from "astro:content";
 
-const { data } = Astro.props;
+type collectionData = CollectionEntry<"projects">["data"];
+
+const { data } = Astro.props as { data: collectionData };
 ---
 
 <SpotlightCard>
@@ -20,16 +23,16 @@ const { data } = Astro.props;
   </Text>
   <div class="flex mt-4">
     {
-      data.links.map((link: { url: string; linkType: string }) => (
+      data.links.map((link: collectionData["links"][0]) => (
         <Button
           as="a"
           variant="link"
-          href={link.url}
+          href={link?.url}
           target="_blank"
           rel="noopener noreferrer"
           class="px-0 mr-4"
         >
-          {link.linkType === "source-code" ? "Source Code" : "Live View"}
+          {link?.linkType === "source-code" ? "Source Code" : "Live View"}
         </Button>
       ))
     }

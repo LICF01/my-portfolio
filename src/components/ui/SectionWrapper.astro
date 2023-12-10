@@ -16,26 +16,24 @@ const { class: className, title, description, divider = true } = Astro.props;
 <section
   id={`${title?.toLowerCase()}`}
   class={twMerge(
-    "relative group w-full  min-h-[calc(100svh-75px)] flex flex-col justify-center",
+    "relative group w-full  min-h-[calc(100svh-75px)] flex flex-col justify-center mb-8",
     className,
   )}
 >
-  <div class="mb-8">
-    {
-      title && (
-        <Text as="h2" variant="title">
-          {title}
-        </Text>
-      )
-    }
-    {
-      description && (
-        <Text as="p" variant="normal">
-          {description}
-        </Text>
-      )
-    }
-    {divider && <Divider />}
-  </div>
+  {
+    title && (
+      <Text as="h2" variant="title">
+        {title}
+      </Text>
+    )
+  }
+  {
+    description && (
+      <Text as="p" variant="normal">
+        {description}
+      </Text>
+    )
+  }
+  {divider && <Divider />}
   <slot />
 </section>
