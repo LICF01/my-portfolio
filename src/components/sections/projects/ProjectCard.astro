@@ -1,4 +1,6 @@
 ---
+import Button from "@/components/ui/Button.astro";
+import Divider from "@/components/ui/Divider.astro";
 import SpotlightCard from "@/components/ui/SpotlightCard.astro";
 import Technologies from "@/components/ui/Technologies.astro";
 import Text from "@/components/ui/Text.astro";
@@ -16,5 +18,22 @@ const { data } = Astro.props;
   <Text as="p" variant="paragraph">
     {data.description}
   </Text>
+  <div class="flex mt-4">
+    {
+      data.links.map((link) => (
+        <Button
+          as="a"
+          variant="link"
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-0 mr-4"
+        >
+          {link.linkType === "source-code" ? "Source Code" : "Live View"}
+        </Button>
+      ))
+    }
+  </div>
+  <Divider />
   <Technologies data={data.technologies} class="mt-4" />
 </SpotlightCard>
