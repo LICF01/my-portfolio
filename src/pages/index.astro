@@ -32,9 +32,18 @@ import Projects from "@/components/sections/projects/index.astro";
 
 <script>
   const body: HTMLElement | null = document.querySelector("body");
+  const header: HTMLElement | null = document.querySelector("#header");
   const dividers: NodeListOf<HTMLElement> =
     document.querySelectorAll(".divider");
   const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
+
+  if (header) {
+    const headerHeight = header.offsetHeight;
+    document.documentElement.style.setProperty(
+      "--header-height",
+      headerHeight + "px",
+    );
+  }
 
   if (body) {
     body.addEventListener("mousemove", function (e: MouseEvent) {
