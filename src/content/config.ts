@@ -28,7 +28,36 @@ const techsSchema = defineCollection({
   }),
 });
 
+const experienceSchema = defineCollection({
+  type: "data",
+  schema: z.object({
+    language: z.enum(["en", "es"]),
+    company: z.string(),
+    location: z.string(),
+    role: z.string(),
+    from: z.date(),
+    to: z.date().nullable(),
+    description: z.string(),
+    details: z.array(z.string()).optional(),
+    technologies: z.array(reference("techs")).optional(),
+  }),
+});
+
+const educationSchema = defineCollection({
+  type: "data",
+  schema: z.object({
+    language: z.enum(["en", "es"]),
+    institute: z.string(),
+    degree: z.string(),
+    from: z.date(),
+    to: z.date().nullable(),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   projects: projectsSchema,
   techs: techsSchema,
+  experience: experienceSchema,
+  education: educationSchema,
 };

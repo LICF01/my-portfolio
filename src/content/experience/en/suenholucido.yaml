@@ -1,0 +1,18 @@
+language: en
+company: SuenhoLucido
+location: Remote
+role: Front-End Developer
+from: 2020-03-21
+to: null
+description: I am currently working as a Frontend Developer at SuenhoLucido, a company that develops software for different clients. I am responsible for maintaining, as well as developing new features in one of their projects.
+details:
+  - Collaborated with the team to migrate the web application from MUI v4 to MUI v5, while implementing a new design with the addition of TypeScript, resulting in a modern user and development experience.
+  - Took charge of identifying and rectifying user-reported bugs, ensuring a consistent and seamless user experience.
+  - Continuously developed and refined key application features, elevating the overall user experience and functionality of the web app.
+  - Introduced Playwright to the team for end-to-end testing, offering a superior solution to Puppeteer and strengthening the application's testing processes.
+technologies:
+  - react
+  - git
+  - github
+  - graphql
+  - css

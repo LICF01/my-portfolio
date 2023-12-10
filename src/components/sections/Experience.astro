@@ -1,38 +1,22 @@
 ---
+import { getCollection, getEntries } from "astro:content";
+
 import Badge from "@/components/ui/Badge.astro";
 import Divider from "@/components/ui/Divider.astro";
 import SectionWrapper from "@/components/ui/SectionWrapper.astro";
-import SpotlightCard from "@/components/ui/SpotlightCard.astro";
 import Text from "@/components/ui/Text.astro";
+import Technologies from "@/components/ui/Technologies.astro";
 
-const experience = [
-  {
-    company: "SuenhoLucido",
-    from: "21/03/2022",
-    to: "present",
-    role: "Frontend Developer",
-    description:
-      "I am currently working as a Frontend Developer at SuenhoLucido, a company that develops software for different clients. I am responsible for maintaining, as well as developing new features.",
-    tasks: [
-      "Collaborated with the team to migrate the web application from MUI v4 to MUI v5, while implementing a new design with the addition of TypeScript, resulting in a modern user and development experience.",
-      "Took charge of identifying and rectifying user-reported bugs, ensuring a consistent and seamless user experience.",
-      "Continuously developed and refined key application features, elevating the overall user experience and functionality of the web app.",
-      "Introduced Playwright to the team for end-to-end testing, offering a modern solution and strengthening the application's testing processes.",
-    ],
-    skills: [
-      "React",
-      "TypeScript",
-      "JavaScript",
-      "MUI",
-      "Styled Components",
-      "Playwright",
-      "Git",
-      "GitHub",
-      "GraphQL",
-      "Apollo Client",
-    ],
-  },
-];
+const experienceCollection = await getCollection("experience");
+const educationCollection = await getCollection("education");
+
+const experience = experienceCollection
+  .concat(educationCollection)
+  .sort((a, b) => {
+    return a.data.from > b.data.from ? -1 : 1;
+  });
+
+console.log(experience);
 ---
 
 <SectionWrapper
@@ -40,59 +24,67 @@ const experience = [
   title="Experience"
   description="Places were I have worked and the technologies I have used."
 >
-  {
-    experience
-      ? experience.map(async (el) => {
-          return (
-            <div class="flex w-full gap-6 group">
-              <div class="ml-4">
-                <div class="w-5 h-5 rounded-full border border-white/30" />
-                <div class="h-full w-0 border-r border-white/30 mx-auto" />
-              </div>
-              <div class="flex flex-col ">
-                <div class="[&_p]:mt-0 flex flex-col flex-1 gap-2">
-                  <Text as="p" variant="paragraph" class="uppercase text-sm">
-                    {el.from + " - " + el.to}
-                  </Text>
-                  <Text as="p" variant="lead">
-                    {el.role}
-                  </Text>
-                  <Text as="h3" variant="lead" class="text-white/60 md:text-xl">
-                    {el.company}
-                  </Text>
+  <div class="flex flex-col gap-6">
+    {
+      experience
+        ? experience.map(async ({ data }) => {
+            return (
+              <div class="flex w-full gap-6 group">
+                <div class="ml-4">
+                  <div class="w-5 h-5 rounded-full border border-white/30" />
+                  <div class="h-full w-0 border-r border-white/30 mx-auto" />
                 </div>
-                <Divider />
-                <div class="flex-[1.8]">
-                  <Text as="h3" variant="paragraph">
-                    {el.description}
-                  </Text>
-                  {false && (
-                    <ul class="list-disc ml-6">
-                      {el.tasks.map((el) => (
-                        <li>
-                          <Text as="p" variant="normal">
-                            {el}
-                          </Text>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <div class="flex flex-wrap gap-4 mt-8">
-                    {el.skills.map((el) => (
-                      <Badge>
-                        <Text as="p" variant="normal" slot="label" class="m-0">
-                          {el}
-                        </Text>
-                      </Badge>
-                    ))}
+                <div class="flex flex-col ">
+                  <div class="[&_p]:mt-0 flex flex-col flex-1 gap-2">
+                    <div class="flex gap-2">
+                      <Text as="p" class="uppercase text-sm">
+                        {data.from.toLocaleString()}
+                      </Text>
+                      <Text as="p" class="uppercase text-sm">
+                        -
+                      </Text>
+                      <Text as="p" class="uppercase text-sm">
+                        {data.to ? data.to?.toLocaleString() : "Present"}
+                      </Text>
+                    </div>
+                    <Text as="p" variant="lead">
+                      {data.role ? data.role : data.degree}
+                    </Text>
+                    <Text
+                      as="h3"
+                      variant="lead"
+                      class="text-white/60 md:text-xl"
+                    >
+                      {data.company ? data.company : data.institute}
+                    </Text>
+                  </div>
+                  <Divider />
+                  <div class="flex-[1.8]">
+                    <Text as="h3" variant="paragraph">
+                      {data.description}
+                    </Text>
+                    {false && (
+                      <ul class="list-disc ml-6">
+                        {el.tasks.map((el) => (
+                          <li>
+                            <Text as="p" variant="normal">
+                              {el}
+                            </Text>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {data.technologies && (
+                      <Technologies data={data.technologies} />
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })
-      : null
-  }
+            );
+          })
+        : null
+    }
+  </div>
 </SectionWrapper>
 
 <script>

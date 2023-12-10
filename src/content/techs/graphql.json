@@ -1,6 +1,6 @@
 {
-  "title": "GraphQL",
-  "web": "https://graphql.org/",
+  "name": "GraphQL",
+  "url": "https://graphql.org/",
   "icon": {
     "type": "fontsource",
     "src": "simple-icons:graphql"
