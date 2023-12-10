@@ -88,21 +88,3 @@ console.log(experience);
   </div>
 </SectionWrapper>
 
-<script>
-  const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
-  const wrapper: HTMLElement | null =
-    document.querySelector(".section-wrapper");
-
-  if (wrapper) {
-    wrapper.addEventListener("mousemove", function (e: MouseEvent) {
-      cards.forEach((card) => {
-        const rect: DOMRect = card.getBoundingClientRect();
-        const x: number = e.clientX - rect.left;
-        const y: number = e.clientY - rect.top;
-
-        card.style.setProperty("--xPos", `${x}px`);
-        card.style.setProperty("--yPos", `${y}px`);
-      });
-    });
-  }
-</script>
