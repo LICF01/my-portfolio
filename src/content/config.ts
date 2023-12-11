@@ -35,7 +35,7 @@ const experienceSchema = defineCollection({
     company: z.string(),
     location: z.string(),
     role: z.string(),
-    from: z.string().transform((str) => new Date(str)),
+    from: z.coerce.date(),
     to: z.date().nullable(),
     description: z.string(),
     details: z.array(z.string()).optional(),

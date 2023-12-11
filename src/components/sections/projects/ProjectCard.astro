@@ -4,6 +4,7 @@ import Divider from "@/components/ui/Divider.astro";
 import SpotlightCard from "@/components/ui/SpotlightCard.astro";
 import Technologies from "@/components/ui/Technologies.astro";
 import Text from "@/components/ui/Text.astro";
+import { formatDate } from "@/utils/date";
 import type { CollectionEntry } from "astro:content";
 
 type collectionData = CollectionEntry<"projects">["data"];
@@ -13,7 +14,7 @@ const { data } = Astro.props as { data: collectionData };
 
 <SpotlightCard>
   <Text as="p" class="mt-0 text-sm pb-2">
-    {data.date.toLocaleDateString()}
+    {formatDate(data.date)}
   </Text>
   <Text as="h3" variant="lead">
     {data.title}
