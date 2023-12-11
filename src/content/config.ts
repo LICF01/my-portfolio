@@ -3,7 +3,7 @@ import { z, defineCollection, reference } from "astro:content";
 const projectsSchema = defineCollection({
   schema: z.object({
     title: z.string(),
-    date: z.date(),
+    date: z.string().transform((str) => new Date(str)),
     language: z.enum(["en", "es"]),
     preview: z.string().optional(),
     description: z.string(),
@@ -35,7 +35,7 @@ const experienceSchema = defineCollection({
     company: z.string(),
     location: z.string(),
     role: z.string(),
-    from: z.date(),
+    from: z.string().transform((str) => new Date(str)),
     to: z.date().nullable(),
     description: z.string(),
     details: z.array(z.string()).optional(),
@@ -49,7 +49,7 @@ const educationSchema = defineCollection({
     language: z.enum(["en", "es"]),
     institute: z.string(),
     degree: z.string(),
-    from: z.date(),
+    from: z.string().transform((str) => new Date(str)),
     to: z.date().nullable(),
     description: z.string(),
   }),

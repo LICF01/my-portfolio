@@ -44,13 +44,13 @@ function isExperienceData(data: CollectionData): data is ExperienceData {
                     <div class="[&_p]:mt-0 flex flex-col flex-1 gap-2 mb-4">
                       <div class="flex gap-2">
                         <Text as="p" class="uppercase text-sm">
-                          {data.from.toLocaleString()}
+                          {data.from.toLocaleDateString()}
                         </Text>
                         <Text as="p" class="uppercase text-sm">
                           -
                         </Text>
                         <Text as="p" class="uppercase text-sm">
-                          {data.to ? data.to?.toLocaleString() : "Present"}
+                          {data.to ? data.to.toLocaleDateString() : "Present"}
                         </Text>
                       </div>
                       <Text as="p" variant="lead">
