@@ -28,8 +28,8 @@ function isExperienceData(data: CollectionData): data is ExperienceData {
 
 <SectionWrapper
   class="section-wrapper"
-  title="Experience"
-  description="Places were I have worked and the technologies I have used."
+  title="Experience & Education"
+  description="My professional experience and education."
 >
   <div class="flex flex-col">
     {
@@ -67,7 +67,7 @@ function isExperienceData(data: CollectionData): data is ExperienceData {
                       </Text>
                     </div>
                     <div class="flex-[1.8]">
-                      <Text as="h3" variant="paragraph">
+                      <Text as="p" class="mt-0">
                         {data.description}
                       </Text>
                       {isExperienceData(data) && (

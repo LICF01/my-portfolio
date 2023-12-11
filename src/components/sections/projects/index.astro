@@ -6,8 +6,12 @@ import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
 ---
 
-<SectionWrapper title="Projects" class="group">
-  <div class="flex flex-col lg:flex-row gap-8">
+<SectionWrapper
+  title="Projects"
+  description="Showcasing my development journey through key projects in front-end design and coding."
+  class="group"
+>
+  <div class="flex flex-col lg:flex-row gap-4">
     {
       projects
         .sort(
