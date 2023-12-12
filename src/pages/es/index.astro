@@ -8,10 +8,12 @@ import Experience from "@/components/sections/Experience.astro";
 import Projects from "@/components/sections/projects/index.astro";
 import Footer from "@/components/sections/Footer.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, KEYWORDS } from "@/const.ts";
+import { ES } from "@/const";
+
+const { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, KEYWORDS } = ES;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
   <BaseHead
     title={SITE_TITLE}
     description={SITE_DESCRIPTION}

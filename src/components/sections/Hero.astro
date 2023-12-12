@@ -2,20 +2,24 @@
 import SectionWrapper from "../ui/SectionWrapper.astro";
 import Text from "../ui/Text.astro";
 import Divider from "../ui/Divider.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <SectionWrapper class="relative max-w-6xl" divider={false}>
   <div class="flex flex-col justify-center gap-2 mb-32">
     <Text as="h1" variant="hero">
-      Hi! I'm Lucas, <br />
-      <span class="text-accent"> Front-End Developer</span>
+      {t("hero").greet}
       <br />
-       with over 3 years of experience.
+      <span class="text-accent"> {t("hero").role}</span>
+      <br />
+      {t("hero").rest}
     </Text>
     <Divider />
     <Text as="p" variant="lead" class="text-white/50">
-      Dedicated to bringing your designs to life with modern technologies and
-      attention to detail.
+      {t("hero").description}
     </Text>
   </div>
 </SectionWrapper>

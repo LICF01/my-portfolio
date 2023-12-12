@@ -2,17 +2,27 @@
 import Container from "../ui/Container.astro";
 import Logo from "../ui/Logo.astro";
 import Navigation from "../ui/Navigation.astro";
-import Text from '../ui/Text.astro'
-import Divider from '../ui/Divider.astro'
+import Text from "../ui/Text.astro";
+import Divider from "../ui/Divider.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { content } = t("footer");
 ---
-<div
-  class="w-full bg-background/30 backdrop-blur-lg mt-16"
->
-<Divider />
+
+<div class="w-full bg-background/30 backdrop-blur-lg mt-16">
+  <Divider />
   <Container>
     <footer class="my-12">
-			<Text as='p' class="text-center">Designed and coded by me with Figma and Visual studio code</Text>
-			<Text as='p' class="text-center">Built with Astro and TailwindCSS</Text>
+      {
+        content.map((item) => (
+          <Text as="p" class="text-center">
+            {item}
+          </Text>
+        ))
+      }
     </footer>
   </Container>
 </div>

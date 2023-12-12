@@ -6,9 +6,19 @@ import Text from "@/components/ui/Text.astro";
 import Technologies from "@/components/ui/Technologies.astro";
 
 import { formatDate } from "@/utils/date";
+import { filterByLang } from "@/utils/collections";
 
-const experienceCollection = await getCollection("experience");
-const educationCollection = await getCollection("education");
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const page = t("experience");
+
+const experienceCollection = await getCollection("experience", ({ data }) =>
+  filterByLang({ data, lang }),
+);
+const educationCollection = await getCollection("education", ({ data }) =>
+  filterByLang({ data, lang }),
+);
 
 type ExperienceData = CollectionEntry<"experience">["data"];
 type EducationData = CollectionEntry<"education">["data"];
@@ -28,8 +38,8 @@ function isExperienceData(data: CollectionData): data is ExperienceData {
 
 <SectionWrapper
   class="section-wrapper"
-  title="Experience & Education"
-  description="My professional experience and education."
+  title={page.title}
+  description={page.description}
 >
   <div class="flex flex-col">
     {

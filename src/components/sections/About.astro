@@ -1,32 +1,26 @@
 ---
 import SectionWrapper from "@/components/ui/SectionWrapper.astro";
 import Text from "@/components/ui/Text.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+type About = {
+  title: string;
+  description: string;
+  content: string[];
+};
+
+const about: About = t("about");
 ---
 
-<SectionWrapper title="About" description="A little bit about me">
-  <Text as="p" variant="paragraph" class="mt-0">
-    I'm a developer based in Asunción, Paraguay, self-taught and passionate
-    about tech. Before coding, I studied music, learned to play the cello 🎻,
-    and even joined an orchestra.
-  </Text>
-  <Text as="p" variant="paragraph">
-    After a series of events and serious consideration, I made a turnaround in
-    my life and decided to focus primarily on software development 💻. I've been
-    coding for about 4 years now 🕒, and my current focus is on front-end
-    development, primarily using React, Next.js, and Astro 🚀. I'm also going
-    slowly but consistently through university to get a degree in computer
-    science 🎓 and where I had fun with languages like C and Java.
-  </Text>
-  <Text as="p" variant="paragraph">
-    Apart from coding, my interests include UI design 🎨, Linux 🐧, keyboards
-    ⌨️, and reading science fiction and thriller-related books 📚 when I want to
-    relax and improve my vocabulary. I also enjoy podcasts and, of course,
-    listening to music.
-  </Text>
-  <Text as="p" variant="paragraph">
-    In summary, music helped me to develop a consistent focus and discipline,
-    which where fundamentals at the beggining of my learning process and which
-    I'm applying to my new career, this have reawakened an enthusiasm for
-    learning and improving myself 🌱.
-  </Text>
+<SectionWrapper title={about.title} description={about.description}>
+  {
+    about.content.map((el, index) => (
+      <Text as="p" variant="paragraph" class={index === 0 ? "mt-0" : ""}>
+        {el}
+      </Text>
+    ))
+  }
 </SectionWrapper>

@@ -9,7 +9,10 @@ import type { CollectionEntry } from "astro:content";
 
 type collectionData = CollectionEntry<"projects">["data"];
 
-const { data } = Astro.props as { data: collectionData };
+const { data, linksLabels } = Astro.props as {
+  data: collectionData;
+  linksLabels: { sourceCode: string; liveDemo: string };
+};
 ---
 
 <SpotlightCard>
@@ -33,7 +36,9 @@ const { data } = Astro.props as { data: collectionData };
           rel="noopener noreferrer"
           class="px-0 mr-4"
         >
-          {link?.linkType === "source-code" ? "Source Code" : "Live View"}
+          {link?.linkType === "source-code"
+            ? linksLabels.sourceCode
+            : linksLabels.liveDemo}
         </Button>
       ))
     }

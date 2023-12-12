@@ -1,16 +1,21 @@
 ---
 import ProjectCard from "@/components/sections/projects/ProjectCard.astro";
 import SectionWrapper from "@/components/ui/SectionWrapper.astro";
+import { filterByLang } from "@/utils/collections";
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("projects");
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+
+const t = useTranslations(lang);
+const page = t("projects");
+
+const projects = await getCollection("projects", ({ data }) =>
+  filterByLang({ data, lang }),
+);
 ---
 
-<SectionWrapper
-  title="Projects"
-  description="Showcasing my development journey through key projects in front-end design and coding."
-  class="group"
->
+<SectionWrapper title={page.title} description={page.description} class="group">
   <div class="flex flex-col lg:flex-row gap-4">
     {
       projects
@@ -18,7 +23,7 @@ const projects = await getCollection("projects");
           (a, b) =>
             new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
         )
-        .map(({ data }) => <ProjectCard data={data} />)
+        .map(({ data }) => <ProjectCard data={data} linksLabels={page.links} />)
     }
   </div>
 </SectionWrapper>
