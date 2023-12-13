@@ -3,7 +3,7 @@ import LanguageSwitcher from "@/components/ui/languageSwitcher.astro";
 import Container from "../ui/Container.astro";
 import Logo from "../ui/Logo.astro";
 import Navigation from "../ui/Navigation.astro";
-import Button from "@/components/ui/Button.astro";
+import DownloadCV from "../ui/DownloadCV.astro";
 ---
 
 <div
@@ -15,9 +15,7 @@ import Button from "@/components/ui/Button.astro";
       <Navigation />
       <div class="flex gap-4">
         <LanguageSwitcher />
-        <Button as="button" variant="filled" class="text-xs lg:text-sm">
-          Download CV
-        </Button>
+        <DownloadCV />
       </div>
     </header>
   </Container>

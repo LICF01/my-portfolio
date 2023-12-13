@@ -1,0 +1,18 @@
+---
+import Button from "@/components/ui/Button.astro";
+
+import { getLangFromUrl } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Button
+  as="a"
+  variant="filled"
+  class="text-xs lg:text-sm"
+  href={"/files/CV-light.pdf"}
+  download="lucas-cubilla-CV-light.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {lang === "en" ? "Download CV" : "Descargar CV"}
+</Button>
