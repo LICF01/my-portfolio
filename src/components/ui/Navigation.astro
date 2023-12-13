@@ -11,10 +11,10 @@ const t = useTranslations(lang);
       .filter(([key, label]) => key.includes("nav"))
       .map(([key, label]) => (
         <a
-          href={"#" + key.split(".").pop()}
+          href={"#" + label.replace(/\s/g, "_").toLowerCase()}
           class="inline-block text-sm  transition hover:text-white"
         >
-          {label}
+          {label.split(" ")[0]}
         </a>
       ))
   }
