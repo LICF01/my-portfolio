@@ -5,17 +5,21 @@ import { filterByLang } from "@/utils/collections";
 import { getCollection } from "astro:content";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-const lang = getLangFromUrl(Astro.url);
+import { ui } from "@/i18n/ui";
 
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const page = t("projects");
 
 const projects = await getCollection("projects", ({ data }) =>
   filterByLang({ data, lang }),
 );
+
+const title = t("projects.title") as string;
+const description = t("projects.description") as string;
+const content = t("projects.links") as (typeof ui)["en"]["projects.links"];
 ---
 
-<SectionWrapper title={page.title} description={page.description} class="group">
+<SectionWrapper title={title} description={description} class="group">
   <div class="flex flex-col lg:flex-row gap-4">
     {
       projects
@@ -23,7 +27,7 @@ const projects = await getCollection("projects", ({ data }) =>
           (a, b) =>
             new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
         )
-        .map(({ data }) => <ProjectCard data={data} linksLabels={page.links} />)
+        .map(({ data }) => <ProjectCard data={data} linksLabels={content} />)
     }
   </div>
 </SectionWrapper>

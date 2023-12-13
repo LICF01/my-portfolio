@@ -6,10 +6,11 @@ import Text from "../ui/Text.astro";
 import Divider from "../ui/Divider.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { ui } from "@/i18n/ui";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { content } = t("footer");
+const content = t("footer.content") as (typeof ui)["en"]["footer.content"];
 ---
 
 <div class="w-full bg-background/30 backdrop-blur-lg mt-16">
@@ -17,7 +18,7 @@ const { content } = t("footer");
   <Container>
     <footer class="my-12">
       {
-        content.map((item) => (
+        content.map((item: string) => (
           <Text as="p" class="text-center">
             {item}
           </Text>

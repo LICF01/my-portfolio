@@ -1,22 +1,24 @@
 ---
+import LanguageSwitcher from "@/components/ui/languageSwitcher.astro";
 import Container from "../ui/Container.astro";
 import Logo from "../ui/Logo.astro";
 import Navigation from "../ui/Navigation.astro";
+import Button from "@/components/ui/Button.astro";
 ---
 
 <div
-  class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg border-b border-foreground/10"
+  class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg border-b border-foreground/10 py-4"
 >
   <Container>
-    <header id="header">
-      <nav class="flex items-center justify-between py-4">
-        <div>
-          <a href="/" class="inline-flex items-center">
-            <Logo />
-          </a>
-        </div>
-        <Navigation />
-      </nav>
+    <header id="header" class="flex justify-between items-center">
+      <Logo />
+      <Navigation />
+      <div class="flex gap-4">
+        <LanguageSwitcher />
+        <Button as="button" variant="filled" class="text-xs lg:text-sm">
+          Download CV
+        </Button>
+      </div>
     </header>
   </Container>
 </div>

@@ -1,0 +1,24 @@
+---
+import Button from "@/components/ui/Button.astro";
+import { languages } from "@/i18n/ui";
+
+import { getLangFromUrl } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<div>
+  {
+    Object.entries(languages)
+      .filter(([key, value]) => key !== lang)
+      .map(([lang]) => (
+        <Button
+          as="a"
+          variant="ghost"
+          href={lang === "es" ? `/${lang}` : "/"}
+          class="text-xs md:text-sm"
+        >
+          {lang.toUpperCase()}
+        </Button>
+      ))
+  }
+</div>

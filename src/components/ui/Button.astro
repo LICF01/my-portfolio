@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 type ComponentProps = {
   id?: string;
-  variant?: "ghost" | "outline" | "outline-dimmed" | "link";
+  variant?: "ghost" | "outline" | "outline-dimmed" | "link" | "filled";
   size?: "sm" | "md" | "lg" | "icon";
   class?: string;
   as: "a" | "button";
@@ -16,6 +16,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        filled:
+          "bg-accent/70 text-white/80 shadow hover:bg-accent hover:text-white",
         outline:
           "border border-input bg-transparent shadow-sm hover:bg-white/10 hover:text-accent-foreground",
         "outline-dimmed":
