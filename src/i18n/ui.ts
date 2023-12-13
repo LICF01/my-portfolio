@@ -11,7 +11,7 @@ export const ui = {
     "nav.experience": "Experience & Education",
     "nav.projects": "Projects",
     "hero.greet": "Hi! I'm Lucas",
-    "hero.role": "Front-End Developer",
+    "hero.role": "Front‑End Developer",
     "hero.rest": "with over 3 years of experience",
     "hero.description":
       "Dedicated to bringing designs to reality with modern technologies and attention to detail.",
@@ -43,7 +43,7 @@ export const ui = {
     "nav.experience": "Experiencia & Educación",
     "nav.projects": "Proyectos",
     "hero.greet": "¡Hola! Soy Lucas",
-    "hero.role": "Desarrollador Front-End",
+    "hero.role": "Desarrollador Front‑End",
     "hero.rest": "con más de 3 años de experiencia",
     "hero.description":
       "Dedicado a llevar diseños a la realidad con tecnologías modernas y atención al detalle.",
