@@ -4,12 +4,12 @@ location: Remoto
 role: Desarrollo Front-End
 from: "march 21 2022"
 to: null
-description: Logré obtener mi primer trabajo remoto como Desarrollador Front-End en SuenhoLucido, una empresa de software con sede en Barcelona, España. Soy responsable de desarrollar y mantener un producto para uno de sus clientes con sede en Dublín, Irlanda, mientras trabajo de forma remota desde Asunción, Paraguay.
+description: Logré obtener mi primer trabajo remoto como Desarrollador Front-End en SuenhoLucido, una empresa de software con sede en Barcelona, España. Soy responsable de desarrollar y mantener un producto para uno de sus clientes con sede en Dublín, Irlanda, mientras trabajo de forma remota desde Asunción, Paraguay
 details:
-  - Collaborated with the team to migrate the web application from MUI v4 to MUI v5, while implementing a new design with the addition of TypeScript, resulting in a modern user and development experience.
-  - Took charge of identifying and rectifying user-reported bugs, ensuring a consistent and seamless user experience.
-  - Continuously developed and refined key application features, elevating the overall user experience and functionality of the web app.
-  - Introduced Playwright to the team for end-to-end testing, offering a superior solution to Puppeteer and strengthening the application's testing processes.
+  - Collaborated with the team to migrate the web application from MUI v4 to MUI v5, while implementing a new design with the addition of TypeScript, resulting in a modern user and development experience
+  - Took charge of identifying and rectifying user-reported bugs, ensuring a consistent and seamless user experience
+  - Continuously developed and refined key application features, elevating the overall user experience and functionality of the web app
+  - Introduced Playwright to the team for end-to-end testing, offering a superior solution to Puppeteer and strengthening the application's testing processes
 technologies:
   - react
   - git

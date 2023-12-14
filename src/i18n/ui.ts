@@ -24,10 +24,10 @@ export const ui = {
       "In summary, music helped me develop teamwork, constant discipline, the ability to focus on something specific to improve. These skills were fundamental at the beginning of my software development learning process, which reawakened my enthusiasm for learning and improving as a person and a professional",
     ],
     "experience.title": "Experience & Education",
-    "experience.description": "My professional experience and education.",
+    "experience.description": "My professional experience and education",
     "projects.title": "Projects",
     "projects.description":
-      "This section is a reflection of my learning process in front-end design and development.",
+      "This section is a reflection of my learning process in front-end design and development",
     "projects.links": {
       sourceCode: "Source Code",
       liveDemo: "Live Demo",
