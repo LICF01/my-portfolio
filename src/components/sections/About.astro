@@ -3,21 +3,29 @@ import SectionWrapper from "@/components/ui/SectionWrapper.astro";
 import Text from "@/components/ui/Text.astro";
 import type { ui } from "@/i18n/ui";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { filterByLang } from "@/utils/collections";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const title = t("about.title") as string;
-const description = t("about.description") as string;
-const content = t("about.content") as (typeof ui)["en"]["about.content"];
+const about = await getCollection("about", ({ data }) =>
+  filterByLang({ data, lang }),
+);
+
+console.log("heeeelooo");
+console.log("about", about);
+const { Content } = await about[0].render();
+const { title, description } = about[0].data;
 ---
 
 <SectionWrapper title={title} description={description}>
   {
-    content.map((el: string, index: number) => (
-      <Text as="p" variant="paragraph" class={index === 0 ? "mt-0" : ""}>
-        {el}
-      </Text>
-    ))
+    (
+      <div class="prose prose-base max-w-none prose-p:text-white/50 prose-p:mt-0 prose-p:mb-4 prose-li:text-white/50 prose-li:mt-0 prose-li:mb-1">
+        <Content />
+      </div>
+    )
   }
 </SectionWrapper>

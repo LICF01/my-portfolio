@@ -55,9 +55,19 @@ const educationSchema = defineCollection({
   }),
 });
 
+const aboutSchema = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    language: z.enum(["en", "es"]),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   projects: projectsSchema,
   techs: techsSchema,
   experience: experienceSchema,
   education: educationSchema,
+  about: aboutSchema,
 };
