@@ -60,7 +60,7 @@ const aboutSchema = defineCollection({
   schema: z.object({
     title: z.string(),
     language: z.enum(["en", "es"]),
-    description: z.string(),
+    description: z.string().optional().nullable(),
   }),
 });
 
