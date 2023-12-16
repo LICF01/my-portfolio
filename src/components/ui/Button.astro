@@ -33,6 +33,6 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & ComponentProps;
 const { variant, size, class: className, as: Tag, ...rest } = Astro.props;
 ---
 
-<Tag class={twMerge(buttonVariants({ variant, size, className }))} {...rest}>
+<Tag class={twMerge(buttonVariants({ variant, className }))} {...rest}>
   <slot />
 </Tag>
