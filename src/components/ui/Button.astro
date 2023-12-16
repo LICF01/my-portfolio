@@ -6,33 +6,25 @@ import { twMerge } from "tailwind-merge";
 type ComponentProps = {
   id?: string;
   variant?: "ghost" | "outline" | "outline-dimmed" | "link" | "filled";
-  size?: "sm" | "md" | "lg" | "icon";
   class?: string;
   as: "a" | "button";
 };
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center  text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "text-foreground/70 inline-flex items-center justify-center text-sm px-4 py-2 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {
-        filled:
-          "bg-accent/70 text-white/80 shadow hover:bg-accent hover:text-white",
+        filled: "bg-accent/70  shadow hover:bg-accent text-foreground",
         outline:
-          "border border-input bg-transparent shadow-sm hover:bg-white/10 hover:text-accent-foreground",
+          "border border-input bg-transparent shadow-sm hover:bg-foreground/10",
         "outline-dimmed":
-          "text-white/30 border border-white/10 rounded-lg px-2 cursor-pointer hover:bg-white/10 hover:text-white/50",
-        ghost:
-          "text-primary-foreground hover:bg-white/10 hover:text-accent-foreground",
-        link: "text-primary-foreground hover:underline hover:text-primary",
-      },
-      size: {
-        sm: "h-8 rounded-md px-3 text-xs",
-        md: "h-9 px-4 py-2 rounded-md",
-        lg: "h-10 rounded-md px-8",
+          "border border-foreground/20 rounded-lg cursor-pointer hover:bg-foreground/10",
+        ghost: "hover:bg-foreground/10",
+        link: "hover:underline",
       },
     },
-    defaultVariants: { variant: "outline", size: "md" },
+    defaultVariants: { variant: "outline" },
   },
 );
 

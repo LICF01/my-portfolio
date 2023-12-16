@@ -64,13 +64,13 @@ function isExperienceData(data: CollectionData): data is ExperienceData {
                           {data.to ? formatDate(data.to) : "Present"}
                         </Text>
                       </div>
-                      <Text as="p" variant="lead">
+                      <Text as="p" variant="lead" class="text-foreground">
                         {isExperienceData(data) ? data.role : data.degree}
                       </Text>
                       <Text
                         as="h3"
                         variant="lead"
-                        class="text-white/60 text-lg md:text-xl"
+                        class="text-lg md:text-xl text-foreground/80"
                       >
                         {isExperienceData(data) ? data.company : data.institute}
                       </Text>

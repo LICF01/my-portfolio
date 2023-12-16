@@ -4,11 +4,20 @@
 
 @layer base {
   :root {
-    --background: 240 2% 9.6%;
-    --foreground: 260 6.6% 64.6%;
+    --background: 218.2 18% 12%;
+    --foreground: 219 13.5% 90%;
     --accent: 342.8 97.5% 52.4%;
     --card-spotlight: rgba(161, 161, 170, 0.1);
     --card-spotlight-border: rgba(161, 161, 170, 1);
+  }
+
+  .light {
+    --background: 219 13.5% 80%;
+    --foreground: 218.2 58% 2%;
+    --accent:0 72.2% 52%;
+    --card-spotlight: rgba(161, 161, 170, 0.1);
+    --card-spotlight-border: rgba(161, 161, 170, 1);
+
   }
 
   body {

@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon";
+import Button from "@/components/ui/Button.astro";
+---
+
+<Button
+  id="theme-toogle-button"
+  as="button"
+  variant="ghost"
+  aria-label="theme-toggle"
+>
+  <Icon name="tabler:sun" class="w-6 h-6" />
+</Button>
+
+<script>
+  const doc = document.documentElement;
+  const themeToggle = document.getElementById("theme-toogle-button");
+  // const lightIcon = document.getElementById("lightIcon");
+  // const darkIcon = document.getElementById("darkIcon");
+
+  console.log(themeToggle);
+  let theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (themeToggle && theme) {
+    doc.classList.add(theme);
+
+    // if (theme === "light") {
+    //   lightIcon.classList.add("hidden");
+    // } else {
+    //   darkIcon.classList.add("hidden");
+    // }
+
+    window.localStorage.setItem("theme", theme);
+
+    const handleToggleClick = () => {
+      // lightIcon.classList.toggle("hidden");
+      // darkIcon.classList.toggle("hidden");
+
+      console.log("hello");
+      if (theme === "light") {
+        doc.classList.remove(theme);
+        theme = "dark";
+        doc.classList.add(theme);
+      } else {
+        doc.classList.remove(theme);
+        theme = "light";
+        doc.classList.add(theme);
+      }
+
+      localStorage.setItem("theme", theme);
+    };
+
+    themeToggle.addEventListener("click", handleToggleClick);
+  }
+</script>

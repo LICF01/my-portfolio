@@ -1,22 +1,26 @@
 ---
-import LanguageSwitcher from "@/components/ui/languageSwitcher.astro";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher.astro";
 import Container from "../ui/Container.astro";
 import Logo from "../ui/Logo.astro";
 import Navigation from "../ui/Navigation.astro";
 import DownloadCV from "../ui/DownloadCV.astro";
+import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 ---
 
 <div
   class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg border-b border-foreground/10 py-4"
 >
   <Container>
-    <header id="header" class="flex justify-between items-center">
-      <Logo />
-      <Navigation />
-      <div class="flex gap-4">
-        <LanguageSwitcher />
-        <DownloadCV />
+    <header id="header" class="flex justify-between items-center w-full">
+      <div class="flex-1">
+        <Logo class="text-start" />
       </div>
+      <Navigation class="flex-1" />
+      <span class="flex items-center justify-end flex-1">
+        <LanguageSwitcher />
+        <ThemeToggle />
+        <DownloadCV />
+      </span>
     </header>
   </Container>
 </div>

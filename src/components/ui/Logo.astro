@@ -1,15 +1,18 @@
 ---
+import { twMerge } from "tailwind-merge";
 import Button from "@/components/ui/Button.astro";
 
 import { getLangFromUrl } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
+
+const { class: className } = Astro.props;
 ---
 
 <Button
   as="a"
   href={lang === "en" ? "/" : "/es"}
-  variant="outline-dimmed"
-  class="text-xs md:text-base text-white/50 space-x-2 uppercase"
+  variant="ghost"
+  class={twMerge("text-xs md:text-base space-x-1 uppercase", className)}
 >
   <span>Lucas</span>
   <span>Cubilla</span>
