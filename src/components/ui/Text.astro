@@ -10,15 +10,16 @@ type ComponentProps = {
   as: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-const textVariants = cva("text-left font-light ", {
+const textVariants = cva("text-left font-normal text-foreground/70", {
   variants: {
     variant: {
-      hero: "text-4xl md:text-6xl leading-[3rem]  md:leading-[5rem] text-foreground/90",
-      title: "text-3xl md:text-4xl font-medium uppercase text-foreground/90",
-      lead: "text-xl md:text-2xl text-foreground/70",
+      hero: "text-4xl md:text-6xl leading-[3rem]  md:leading-[5rem] text-foreground/90 font-light",
+      title:
+        "text-3xl md:text-4xl font-medium uppercase text-foreground/90 font-light",
+      lead: "text-xl md:text-2xl",
       medium: "text-left text-lg lg:text-xl",
-      normal: "leading-7 mt-2 text-foreground/60",
-      paragraph: "leading-7 mt-4 text-foreground/60",
+      normal: "leading-7 mt-2",
+      paragraph: "leading-7 mt-4",
     },
   },
   defaultVariants: { variant: "normal" },

@@ -11,17 +11,17 @@ type ComponentProps = {
 };
 
 const buttonVariants = cva(
-  "text-foreground/70 inline-flex items-center justify-center text-sm px-4 py-2 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "text-foreground/80 inline-flex items-center justify-center text-sm px-4 py-2 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {
-        filled: "bg-accent/70  shadow hover:bg-accent text-foreground",
+        filled: "bg-accent/90  shadow text-foreground hover:bg-accent",
         outline:
           "border border-input bg-transparent shadow-sm hover:bg-foreground/10",
         "outline-dimmed":
           "border border-foreground/20 rounded-lg cursor-pointer hover:bg-foreground/10",
-        ghost: "hover:bg-foreground/10",
-        link: "hover:underline",
+        ghost: "hover:bg-foreground/10 hover:text-foreground/90",
+        link: "hover:underline ",
       },
     },
     defaultVariants: { variant: "outline" },
