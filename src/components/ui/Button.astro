@@ -30,7 +30,7 @@ const buttonVariants = cva(
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & ComponentProps;
 
-const { variant, size, class: className, as: Tag, ...rest } = Astro.props;
+const { variant, class: className, as: Tag, ...rest } = Astro.props;
 ---
 
 <Tag class={twMerge(buttonVariants({ variant, className }))} {...rest}>

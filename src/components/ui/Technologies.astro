@@ -11,13 +11,7 @@ const technologies = await getEntries(data);
 <div class={twMerge("flex gap-2 flex-wrap", className)}>
   {
     technologies?.map(({ data }: { data: any }) => (
-      <Button
-        as="a"
-        variant="outline-dimmed"
-        size="md"
-        href={data.url}
-        target="_blank"
-      >
+      <Button as="a" variant="outline-dimmed" href={data.url} target="_blank">
         {data.name}
       </Button>
     ))
