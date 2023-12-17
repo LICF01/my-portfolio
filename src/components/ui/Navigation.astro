@@ -9,19 +9,31 @@ const t = useTranslations(lang);
 const { class: className } = Astro.props;
 ---
 
-<nav class={twMerge("hidden lg:flex justify-center items-center", className)}>
-  {
-    Object.entries(ui[lang])
-      .filter(([key, label]) => key.includes("nav"))
-      .map(([key, label]) => (
-        <Button
-          as="a"
-          variant="ghost"
-          href={"#" + label.replace(/\s/g, "_").toLowerCase()}
-          class="inline-block text-xs transition uppercase"
-        >
-          {label.split(" ")[0]}
-        </Button>
-      ))
-  }
+<nav
+  id="navigation"
+  class={twMerge(
+    "fixed h-[100svh] inset-y-0 inset-x-0 w-full translate-x-full bg-background lg:static lg:h-full transition-transform duration-150 ease-out",
+    className,
+  )}
+>
+  <ul
+    class="flex flex-col lg:flex-row justify-center items-center h-full gap-8 lg:gap-4"
+  >
+    {
+      Object.entries(ui[lang])
+        .filter(([key, label]) => key.includes("nav"))
+        .map(([key, label]) => (
+          <li>
+            <Button
+              as="a"
+              variant="ghost"
+              href={"#" + label.replace(/\s/g, "_").toLowerCase()}
+              class="inline-block text-2xl lg:text-xs transition uppercase"
+            >
+              {label.split(" ")[0]}
+            </Button>
+          </li>
+        ))
+    }
+  </ul>
 </nav>

@@ -1,0 +1,77 @@
+---
+import Button from "@/components/ui/Button.astro";
+---
+
+<Button
+  as="button"
+  variant="ghost"
+  id="nav-button"
+  type="button"
+  class="lg:hidden inline-flex items-center justify-center transition focus:outline-none focus-visible:ring-2 z-50"
+  aria-controls="navigation"
+  aria-expanded="false"
+>
+  <span class="sr-only">Toggle menu</span>
+  <svg
+    id="openIcon"
+    class="h-6 w-6"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M19 8H5V10H19V8ZM19 14H5V16H19V14Z"></path>
+  </svg>
+  <svg
+    id="closeIcon"
+    class="h-6 w-6 hidden"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+    ></path>
+  </svg>
+</Button>
+
+<script>
+  const toggleButton = document.getElementById("nav-button");
+  const openIcon = document.getElementById("openIcon");
+  const closeIcon = document.getElementById("closeIcon");
+  const navigation = document.getElementById("navigation");
+  const listItems = navigation?.querySelectorAll("li a");
+
+  function openNavigation() {
+    toggleButton?.setAttribute("aria-expanded", "true");
+    navigation?.classList.add("translate-x-0");
+    closeIcon?.classList.remove("hidden");
+    openIcon?.classList.add("hidden");
+  }
+
+  function closeNavigation() {
+    toggleButton?.setAttribute("aria-expanded", "false");
+    navigation?.classList.remove("translate-x-0");
+    closeIcon?.classList.add("hidden");
+    openIcon?.classList.remove("hidden");
+  }
+
+  const handleToggleClick = () => {
+    console.log(navigation?.getAttribute("aria-expanded"));
+    toggleButton?.getAttribute("aria-expanded") === "false"
+      ? openNavigation()
+      : closeNavigation();
+  };
+
+  toggleButton?.addEventListener("click", handleToggleClick);
+
+  listItems?.forEach((item) => {
+    item.addEventListener("click", closeNavigation);
+  });
+
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+      toggleButton?.focus();
+      closeNavigation();
+    }
+  });
+</script>
