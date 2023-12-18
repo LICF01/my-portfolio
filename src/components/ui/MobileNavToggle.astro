@@ -43,6 +43,7 @@ import Button from "@/components/ui/Button.astro";
 
   function openNavigation() {
     toggleButton?.setAttribute("aria-expanded", "true");
+    navigation?.classList.remove("translate-x-full");
     navigation?.classList.add("translate-x-0");
     closeIcon?.classList.remove("hidden");
     openIcon?.classList.add("hidden");
@@ -51,12 +52,13 @@ import Button from "@/components/ui/Button.astro";
   function closeNavigation() {
     toggleButton?.setAttribute("aria-expanded", "false");
     navigation?.classList.remove("translate-x-0");
+    navigation?.classList.add("translate-x-full");
     closeIcon?.classList.add("hidden");
     openIcon?.classList.remove("hidden");
   }
 
   const handleToggleClick = () => {
-    console.log(navigation?.getAttribute("aria-expanded"));
+    console.log(toggleButton?.getAttribute("aria-expanded"));
     toggleButton?.getAttribute("aria-expanded") === "false"
       ? openNavigation()
       : closeNavigation();
