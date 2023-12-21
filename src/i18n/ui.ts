@@ -7,6 +7,11 @@ export const defaultLang = "en";
 
 export const ui = {
   en: {
+    "meta.title": "Lucas Cubilla - Front-End Developer",
+    "meta.description":
+      "Lucas Cubilla's dev portfolio showcasing expertise in front-end development, including projects in React, JavaScript, and responsive web design.",
+    "meta.author": "Lucas Cubilla",
+    "meta.keywords": "Front-End Development, React, JavaScript, Web Design",
     "nav.about": "About",
     "nav.experience": "Experience & Education",
     "nav.projects": "Projects",
@@ -40,6 +45,11 @@ export const ui = {
     ],
   },
   es: {
+    "meta.title": "Lucas Cubilla - Desarrollador Front-End",
+    "meta.description":
+      "Portafolio de Lucas Cubilla que muestra experiencia en desarrollo front-end, incluyendo proyectos en React, JavaScript, y diseño web responsivo.",
+    "meta.author": "Lucas Cubilla",
+    "meta.keywords": "Desarrollo Front-End, React, JavaScript, Diseño Web",
     "nav.about": "Acerca de",
     "nav.experience": "Experiencia & Educación",
     "nav.projects": "Proyectos",
@@ -73,8 +83,3 @@ export const ui = {
     ],
   },
 } as const;
-
-export type UI = typeof ui;
-
-export type EnUI = UI["en"];
-export type EsUI = UI["es"];

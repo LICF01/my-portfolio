@@ -18,7 +18,6 @@ import Button from "@/components/ui/Button.astro";
   // const lightIcon = document.getElementById("lightIcon");
   // const darkIcon = document.getElementById("darkIcon");
 
-  console.log(themeToggle);
   let theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme") as string;
@@ -44,7 +43,6 @@ import Button from "@/components/ui/Button.astro";
       // lightIcon.classList.toggle("hidden");
       // darkIcon.classList.toggle("hidden");
 
-      console.log("hello");
       if (theme === "light") {
         doc.classList.remove(theme);
         theme = "dark";

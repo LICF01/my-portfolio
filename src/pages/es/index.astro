@@ -1,63 +1,14 @@
 ---
-import BaseHead from "@/components/ui/BaseHead.astro";
-import Header from "@/components/sections/Header.astro";
-import Hero from "@/components/sections/Hero.astro";
-import Container from "@/components/ui/Container.astro";
+import Layout from "@/layouts/Layout.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
+import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/projects/index.astro";
-import Footer from "@/components/sections/Footer.astro";
-
-import { ES } from "@/const";
-
-const { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, KEYWORDS } = ES;
 ---
 
-<html lang="es" class="scroll-smooth">
-  <BaseHead
-    title={SITE_TITLE}
-    description={SITE_DESCRIPTION}
-    author={AUTHOR}
-    keywords={KEYWORDS}
-  />
-  <body class="group font-sans bg-background text-foreground group antialiased">
-    <Header />
-    <main>
-      <Container>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Footer />
-      </Container>
-    </main>
-    <script>
-      const body: HTMLElement | null = document.querySelector("body");
-      const dividers: NodeListOf<HTMLElement> =
-        document.querySelectorAll(".divider");
-      const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
-
-      if (body) {
-        body.addEventListener("mousemove", function (e: MouseEvent) {
-          dividers.forEach((div) => {
-            const rect: DOMRect = div.getBoundingClientRect();
-            const x: number = e.clientX - rect.left;
-            const y: number = e.clientY - rect.top;
-
-            div.style.setProperty("--xPos", `${x}px`);
-            div.style.setProperty("--yPos", `${y}px`);
-          });
-
-          cards.forEach((div) => {
-            const rect: DOMRect = div.getBoundingClientRect();
-            const x: number = e.clientX - rect.left;
-            const y: number = e.clientY - rect.top;
-
-            div.style.setProperty("--xPos", `${x}px`);
-            div.style.setProperty("--yPos", `${y}px`);
-          });
-        });
-      }
-    </script>
-  </body>
-</html>
+<Layout>
+  <Hero />
+  <About />
+  <Experience />
+  <Projects />
+</Layout>

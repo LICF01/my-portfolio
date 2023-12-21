@@ -38,42 +38,32 @@ import Button from "@/components/ui/Button.astro";
   const toggleButton = document.getElementById("nav-button");
   const openIcon = document.getElementById("openIcon");
   const closeIcon = document.getElementById("closeIcon");
-  const navigation = document.getElementById("navigation");
+  const navigation = document.getElementById("mobile-navigation");
   const listItems = navigation?.querySelectorAll("li a");
 
-  function openNavigation() {
-    toggleButton?.setAttribute("aria-expanded", "true");
-    navigation?.classList.remove("translate-x-full");
-    navigation?.classList.add("translate-x-0");
-    closeIcon?.classList.remove("hidden");
-    openIcon?.classList.add("hidden");
+  function toggleNavigation() {
+    toggleButton?.setAttribute(
+      "aria-expanded",
+      toggleButton?.getAttribute("aria-expanded") === "false"
+        ? "true"
+        : "false",
+    );
+    navigation?.classList.toggle("translate-x-0");
+    navigation?.classList.toggle("translate-x-full");
+    closeIcon?.classList.toggle("hidden");
+    openIcon?.classList.toggle("hidden");
   }
 
-  function closeNavigation() {
-    toggleButton?.setAttribute("aria-expanded", "false");
-    navigation?.classList.remove("translate-x-0");
-    navigation?.classList.add("translate-x-full");
-    closeIcon?.classList.add("hidden");
-    openIcon?.classList.remove("hidden");
-  }
-
-  const handleToggleClick = () => {
-    console.log(toggleButton?.getAttribute("aria-expanded"));
-    toggleButton?.getAttribute("aria-expanded") === "false"
-      ? openNavigation()
-      : closeNavigation();
-  };
-
-  toggleButton?.addEventListener("click", handleToggleClick);
+  toggleButton?.addEventListener("click", toggleNavigation);
 
   listItems?.forEach((item) => {
-    item.addEventListener("click", closeNavigation);
+    item.addEventListener("click", toggleNavigation);
   });
 
   window.addEventListener("keyup", (e) => {
     if (e.key === "Escape") {
       toggleButton?.focus();
-      closeNavigation();
+      toggleNavigation();
     }
   });
 </script>

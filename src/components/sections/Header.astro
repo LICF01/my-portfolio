@@ -6,20 +6,20 @@ import Navigation from "../ui/Navigation.astro";
 import DownloadCV from "../ui/DownloadCV.astro";
 import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 import MobileNavToggle from "@/components/ui/MobileNavToggle.astro";
+import MobileNavigation from "@/components/ui/MobileNavigation.astro";
 ---
 
-<div
-  class="sticky w-full inset-x-0 top-0 z-50 bg-background/30 backdrop-blur-lg border-b border-foreground/10 py-4"
->
-  <Container>
-    <header id="header" class="flex justify-between items-center w-full">
+<div class="sticky top-0 left-0 z-50 border-b border-foreground/10">
+  <Container class="bg-background/30 backdrop-blur-lg">
+    <header id="header" class="flex justify-between items-center py-4">
       <div class="flex-1">
         <Logo class="text-start" />
       </div>
-      <Navigation class="flex-1" />
-      <span class="flex items-center justify-end flex-1">
+      <Navigation class="flex-1 hidden lg:block" />
+      <span class="flex items-center justify-end flex-1 gap-2">
         <LanguageSwitcher />
         <ThemeToggle />
+        <DownloadCV />
       </span>
       <MobileNavToggle />
     </header>

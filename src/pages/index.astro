@@ -1,61 +1,43 @@
 ---
-import BaseHead from "@/components/ui/BaseHead.astro";
-import Header from "@/components/sections/Header.astro";
-import Hero from "@/components/sections/Hero.astro";
-import Container from "@/components/ui/Container.astro";
+import Layout from "@/layouts/Layout.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
+import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/projects/index.astro";
-import Footer from "@/components/sections/Footer.astro";
-
-import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, KEYWORDS } from "@/const.ts";
 ---
 
-<html lang="en" class="scroll-smooth">
-  <BaseHead
-    title={SITE_TITLE}
-    description={SITE_DESCRIPTION}
-    author={AUTHOR}
-    keywords={KEYWORDS}
-  />
-  <body class="group font-sans bg-background antialiased w-full">
-    <Header />
-    <main>
-      <Container>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Footer />
-      </Container>
-    </main>
-    <script>
-      const body: HTMLElement | null = document.querySelector("body");
-      const dividers: NodeListOf<HTMLElement> =
-        document.querySelectorAll(".divider");
-      const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
+<Layout>
+  <Hero />
+  <About />
+  <Experience />
+  <Projects />
+</Layout>
 
-      if (body) {
-        body.addEventListener("mousemove", function (e: MouseEvent) {
-          dividers.forEach((div) => {
-            const rect: DOMRect = div.getBoundingClientRect();
-            const x: number = e.clientX - rect.left;
-            const y: number = e.clientY - rect.top;
+<script>
+  const body: HTMLElement | null = document.querySelector("body");
+  const dividers: NodeListOf<HTMLElement> =
+    document.querySelectorAll(".divider");
+  const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
 
-            div.style.setProperty("--xPos", `${x}px`);
-            div.style.setProperty("--yPos", `${y}px`);
-          });
+  if (body) {
+    body.addEventListener("mousemove", function (e: MouseEvent) {
+      dividers.forEach((div) => {
+        const rect: DOMRect = div.getBoundingClientRect();
+        const x: number = e.clientX - rect.left;
+        const y: number = e.clientY - rect.top;
 
-          cards.forEach((div) => {
-            const rect: DOMRect = div.getBoundingClientRect();
-            const x: number = e.clientX - rect.left;
-            const y: number = e.clientY - rect.top;
+        div.style.setProperty("--xPos", `${x}px`);
+        div.style.setProperty("--yPos", `${y}px`);
+      });
 
-            div.style.setProperty("--xPos", `${x}px`);
-            div.style.setProperty("--yPos", `${y}px`);
-          });
-        });
-      }
-    </script>
-  </body>
-</html>
+      cards.forEach((div) => {
+        const rect: DOMRect = div.getBoundingClientRect();
+        const x: number = e.clientX - rect.left;
+        const y: number = e.clientY - rect.top;
+
+        div.style.setProperty("--xPos", `${x}px`);
+        div.style.setProperty("--yPos", `${y}px`);
+      });
+    });
+  }
+</script>

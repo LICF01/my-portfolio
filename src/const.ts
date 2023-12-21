@@ -1,4 +1,5 @@
 export const SITE_TITLE = "Lucas Cubilla - Front-End Developer";
+
 export const SITE_DESCRIPTION =
   "Lucas Cubilla's dev portfolio showcasing expertise in front-end development, including projects in React, JavaScript, and responsive web design.";
 export const AUTHOR = "Lucas Cubilla";

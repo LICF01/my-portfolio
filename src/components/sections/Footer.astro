@@ -13,8 +13,9 @@ const t = useTranslations(lang);
 const content = t("footer.content") as (typeof ui)["en"]["footer.content"];
 ---
 
-<div class="w-full bg-background/30 backdrop-blur-lg mt-16">
-  <Divider />
+<div
+  class="w-full bg-background/30 backdrop-blur-lg mt-16 border-t border-foreground/10"
+>
   <Container>
     <footer class="my-12">
       {
