@@ -15,7 +15,10 @@ const rest = t("hero.rest");
 const description = t("hero.description");
 ---
 
-<SectionWrapper class="relative max-w-6xl min-h-[100svh]" divider={false}>
+<SectionWrapper
+  class="relative max-w-6xl min-h-[calc(100vh-75px)]"
+  divider={false}
+>
   <div class="flex flex-col justify-center gap-2 mb-32">
     <Text as="h1" variant="hero">
       <span class="text-2xl text-foreground/70">
