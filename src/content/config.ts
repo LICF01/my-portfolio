@@ -1,22 +1,24 @@
 import { z, defineCollection, reference } from "astro:content";
 
 const projectsSchema = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    date: z.string().transform((str) => new Date(str)),
-    language: z.enum(["en", "es"]),
-    preview: z.string().optional(),
-    description: z.string(),
-    links: z.array(
-      z
-        .object({
-          linkType: z.enum(["source-code", "live-preview"]),
-          url: z.string().url(),
-        })
-        .optional(),
-    ),
-    technologies: z.array(reference("techs")).optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.string().transform((str) => new Date(str)),
+      language: z.enum(["en", "es"]),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      description: z.string(),
+      links: z.array(
+        z
+          .object({
+            linkType: z.enum(["source-code", "live-preview"]),
+            url: z.string().url(),
+          })
+          .optional(),
+      ),
+      technologies: z.array(reference("techs")).optional(),
+    }),
 });
 
 const techsSchema = defineCollection({
