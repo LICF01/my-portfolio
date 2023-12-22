@@ -1,0 +1,17 @@
+---
+import Button from "@/components/ui/Button.astro";
+import ArrowUp from "@/components/ui/icons/ArrowUp.astro";
+
+const props = Astro.props;
+---
+
+<Button
+  id="scroll-to-top"
+  as="a"
+  href={"#hero"}
+  aria-label="Scroll to top"
+  variant="outline-dimmed"
+  class="fixed hidden lg:inline-flex bottom-[2.5rem] opacity-0 lg:right-[4rem] xl:right-[10rem] text-foreground/70 rounded-full h-16 w-16 backdrop-blur-lg transition-opacity duration-500"
+>
+  <ArrowUp />
+</Button>

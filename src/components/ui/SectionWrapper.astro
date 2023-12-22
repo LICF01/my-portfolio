@@ -21,7 +21,7 @@ const { class: className, title, description, divider = true } = Astro.props;
   )}
 >
   {
-    title && (
+    title && title !== "hero" && (
       <Text as="h2" variant="title">
         {title}
       </Text>

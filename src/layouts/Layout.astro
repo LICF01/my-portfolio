@@ -5,6 +5,7 @@ import Footer from "@/components/sections/Footer.astro";
 import Container from "@/components/ui/Container.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import MobileNavigation from "@/components/ui/MobileNavigation.astro";
+import ScrollToTop from "@/components/ui/ScrollToTop.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -26,33 +27,49 @@ const t = useTranslations(lang);
       </main>
     </Container>
     <Footer />
-  </body>
-  <script>
-    const body: HTMLElement | null = document.querySelector("body");
-    const dividers: NodeListOf<HTMLElement> =
-      document.querySelectorAll(".divider");
-    const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
+    <ScrollToTop />
+    <script>
+      const body: HTMLElement | null = document.querySelector("body");
+      const dividers: NodeListOf<HTMLElement> =
+        document.querySelectorAll(".divider");
+      const cards: NodeListOf<HTMLElement> = document.querySelectorAll(".card");
 
-    if (body) {
-      body.addEventListener("mousemove", function (e: MouseEvent) {
-        dividers.forEach((div) => {
-          const rect: DOMRect = div.getBoundingClientRect();
-          const x: number = e.clientX - rect.left;
-          const y: number = e.clientY - rect.top;
+      if (body) {
+        body.addEventListener("mousemove", function (e: MouseEvent) {
+          dividers.forEach((div) => {
+            const rect: DOMRect = div.getBoundingClientRect();
+            const x: number = e.clientX - rect.left;
+            const y: number = e.clientY - rect.top;
 
-          div.style.setProperty("--xPos", `${x}px`);
-          div.style.setProperty("--yPos", `${y}px`);
+            div.style.setProperty("--xPos", `${x}px`);
+            div.style.setProperty("--yPos", `${y}px`);
+          });
+
+          cards.forEach((div) => {
+            const rect: DOMRect = div.getBoundingClientRect();
+            const x: number = e.clientX - rect.left;
+            const y: number = e.clientY - rect.top;
+
+            div.style.setProperty("--xPos", `${x}px`);
+            div.style.setProperty("--yPos", `${y}px`);
+          });
         });
+      }
 
-        cards.forEach((div) => {
-          const rect: DOMRect = div.getBoundingClientRect();
-          const x: number = e.clientX - rect.left;
-          const y: number = e.clientY - rect.top;
+      window.addEventListener("scroll", function () {
+        const hero = document.getElementById("hero");
+        const backToTopButton = document.getElementById("scroll-to-top");
 
-          div.style.setProperty("--xPos", `${x}px`);
-          div.style.setProperty("--yPos", `${y}px`);
-        });
+        if (!hero || !backToTopButton) return;
+
+        if (hero?.getBoundingClientRect().bottom < 300) {
+          backToTopButton.classList.remove("opacity-0");
+          backToTopButton.classList.add("opacity-100");
+        } else {
+          backToTopButton.classList.add("opacity-0");
+          backToTopButton.classList.remove("opacity-100");
+        }
       });
-    }
-  </script>
+    </script>
+  </body>
 </html>
