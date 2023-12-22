@@ -25,7 +25,7 @@ const { data, linksLabels } = Astro.props as {
   <Text as="p" variant="paragraph">
     {data.description}
   </Text>
-  <div class="flex mt-4">
+  <div class="flex mt-2 lg:mt-4">
     {
       data.links.map((link: collectionData["links"][0]) => (
         <Button
@@ -34,7 +34,7 @@ const { data, linksLabels } = Astro.props as {
           href={link?.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-0 mr-4"
+          class="px-0 mr-4 mb-0 pb-0"
         >
           {link?.linkType === "source-code"
             ? linksLabels.sourceCode
@@ -44,5 +44,5 @@ const { data, linksLabels } = Astro.props as {
     }
   </div>
   <Divider />
-  <Technologies data={data.technologies} class="mt-4" />
+  <Technologies data={data.technologies} />
 </SpotlightCard>
