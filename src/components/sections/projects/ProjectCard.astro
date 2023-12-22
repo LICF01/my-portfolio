@@ -5,6 +5,7 @@ import SpotlightCard from "@/components/ui/SpotlightCard.astro";
 import Technologies from "@/components/ui/Technologies.astro";
 import Text from "@/components/ui/Text.astro";
 import { formatDate } from "@/utils/date";
+import { Icon } from "astro-icon";
 import type { CollectionEntry } from "astro:content";
 
 type collectionData = CollectionEntry<"projects">["data"];
@@ -22,20 +23,29 @@ const { data, linksLabels } = Astro.props as {
   <Text as="h3" variant="lead" class="text-foreground/90">
     {data.title}
   </Text>
-  <Text as="p" variant="paragraph">
+  <Text as="p" variant="paragraph" class="lg:min-h-[85px]">
     {data.description}
   </Text>
-  <div class="flex mt-2 lg:mt-4">
+  <div class="flex mt-2 lg:mt-4 gap-2">
     {
       data.links.map((link: collectionData["links"][0]) => (
         <Button
           as="a"
-          variant="link"
+          variant="ghost"
           href={link?.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-0 mr-4 mb-0 pb-0"
+          class=" p-2 text-sm font-normal"
         >
+          <Icon
+            id="lightIcon"
+            name={
+              link?.linkType === "source-code"
+                ? "codicon:git-merge"
+                : "codicon:globe"
+            }
+            class="w-6 h-6 pr-2"
+          />
           {link?.linkType === "source-code"
             ? linksLabels.sourceCode
             : linksLabels.liveDemo}
