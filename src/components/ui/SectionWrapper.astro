@@ -11,29 +11,34 @@ type Props = {
 };
 
 const { class: className, title, description, divider = true } = Astro.props;
+
+const titleId = title?.replace(/\s/g, "_").toLowerCase();
 ---
 
 <section
-  id={`${title?.replace(/\s/g, "_").toLowerCase()}`}
+  aria-labelledby={`${titleId}-title`}
+  id={titleId}
   class={twMerge(
     "w-full min-h-[calc(100svh+75px)] flex flex-col justify-center mb-8 scroll-mt-24 lg:scroll-mt-0",
     className,
   )}
 >
-  {
-    title && title !== "hero" && (
-      <Text as="h2" variant="title">
-        {title}
-      </Text>
-    )
-  }
-  {
-    description && (
-      <Text as="p" variant="normal">
-        {description}
-      </Text>
-    )
-  }
+  <header>
+    {
+      title && title !== "hero" && (
+        <Text id={`${titleId}-title`} as="h2" variant="title">
+          {title}
+        </Text>
+      )
+    }
+    {
+      description && (
+        <Text as="p" variant="normal">
+          {description}
+        </Text>
+      )
+    }
+  </header>
   {divider && <Divider />}
   <slot />
 </section>
