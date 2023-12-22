@@ -40,6 +40,7 @@ import Button from "@/components/ui/Button.astro";
   const closeIcon = document.getElementById("closeIcon");
   const navigation = document.getElementById("mobile-navigation");
   const listItems = navigation?.querySelectorAll("li a");
+  const body = document.body;
 
   function toggleNavigation() {
     toggleButton?.setAttribute(
@@ -52,6 +53,7 @@ import Button from "@/components/ui/Button.astro";
     navigation?.classList.toggle("translate-x-full");
     closeIcon?.classList.toggle("hidden");
     openIcon?.classList.toggle("hidden");
+    body?.classList.toggle("overflow-hidden");
   }
 
   toggleButton?.addEventListener("click", toggleNavigation);

@@ -12,7 +12,7 @@ const { class: className } = Astro.props;
 <nav
   id="mobile-navigation"
   class={twMerge(
-    "fixed h-[100svh] w-full z-[30] bg-background flex items-center  translate-x-full transition-transform duration-300",
+    "fixed h-[100lvh] w-full z-[30] bg-background/30 backdrop-blur-md flex items-center  translate-x-full transition-transform duration-300",
     className,
   )}
 >
@@ -26,7 +26,7 @@ const { class: className } = Astro.props;
               as="a"
               variant="ghost"
               href={"#" + label.replace(/\s/g, "_").toLowerCase()}
-              class="inline-block text-2xl transition uppercase font-light"
+              class="inline-block text-3xl transition uppercase font-light"
             >
               {label.split(" ")[0]}
             </Button>
