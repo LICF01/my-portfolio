@@ -9,14 +9,15 @@ import Button from "@/components/ui/Button.astro";
   variant="ghost"
   aria-label="theme-toggle"
 >
-  <Icon name="tabler:sun" class="w-6 h-6" />
+  <Icon id="lightIcon" name="tabler:sun" class="w-6 h-6" />
+  <Icon id="darkIcon" name="tabler:moon" class="w-6 h-6" />
 </Button>
 
 <script>
   const doc = document.documentElement;
   const themeToggle = document.getElementById("theme-toogle-button");
-  // const lightIcon = document.getElementById("lightIcon");
-  // const darkIcon = document.getElementById("darkIcon");
+  const lightIcon = document.getElementById("lightIcon");
+  const darkIcon = document.getElementById("darkIcon");
 
   let theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
@@ -31,17 +32,17 @@ import Button from "@/components/ui/Button.astro";
   if (themeToggle && theme) {
     doc.classList.add(theme);
 
-    // if (theme === "light") {
-    //   lightIcon.classList.add("hidden");
-    // } else {
-    //   darkIcon.classList.add("hidden");
-    // }
+    if (theme === "light") {
+      lightIcon?.classList.add("hidden");
+    } else {
+      darkIcon?.classList.add("hidden");
+    }
 
     window.localStorage.setItem("theme", theme);
 
     const handleToggleClick = () => {
-      // lightIcon.classList.toggle("hidden");
-      // darkIcon.classList.toggle("hidden");
+      lightIcon?.classList.toggle("hidden");
+      darkIcon?.classList.toggle("hidden");
 
       if (theme === "light") {
         doc.classList.remove(theme);
