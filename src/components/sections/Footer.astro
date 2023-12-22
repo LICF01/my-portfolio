@@ -20,7 +20,7 @@ const content = t("footer.content") as (typeof ui)["en"]["footer.content"];
     <footer class="my-12">
       {
         content.map((item: string) => (
-          <Text as="p" class="text-center">
+          <Text as="p" class="text-center text-xs lg:text-sm">
             {item}
           </Text>
         ))
