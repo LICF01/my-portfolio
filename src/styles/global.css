@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 6.1% 12.9%;
+    --background: 210 8% 9.8%;
     --foreground: 219 13.5% 100%;
     --accent: 342.8 97.5% 42.4%;
     --card-spotlight: rgba(161, 161, 170, 0.1);
