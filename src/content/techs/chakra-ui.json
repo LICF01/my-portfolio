@@ -3,6 +3,6 @@
   "url": "https://chakra-ui.com/",
   "icon": {
     "type": "fontsource",
-    "src": ""
+    "src": "simple-icons:chakraui"
   }
 }

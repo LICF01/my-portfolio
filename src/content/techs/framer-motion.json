@@ -2,7 +2,7 @@
   "name": "Framer Motion",
   "url": "https://www.framer.com/motion/",
   "icon": {
-    "type": "",
-    "src": ""
+    "type": "fontsource",
+    "src": "simple-icons:framer"
   }
 }

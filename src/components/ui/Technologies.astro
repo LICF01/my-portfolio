@@ -2,13 +2,14 @@
 import { twMerge } from "tailwind-merge";
 import Button from "@/components/ui/Button.astro";
 import { getEntries } from "astro:content";
+import Icon from "@/components/ui/Icon.astro";
 
 const { data, class: className } = Astro.props;
 
 const technologies = await getEntries(data);
 ---
 
-<ul class={twMerge("flex  flex-wrap", className)}>
+<ul class={twMerge("flex flex-wrap gap-2", className)}>
   {
     technologies?.map(({ data }: { data: any }) => (
       <li>
@@ -17,9 +18,12 @@ const technologies = await getEntries(data);
           variant="ghost"
           href={data.url}
           target="_blank"
-          class="text-sm p-2 font-normal"
+          class="text-sm p-1 px-2 font-normal space-x-2"
         >
-          {data.name}
+					{Boolean(data.icon.src) && (
+						<Icon name={data.icon.src} size='sm' />
+					)}
+					<span>{data.name}</span>
         </Button>
       </li>
     ))

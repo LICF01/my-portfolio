@@ -7,6 +7,7 @@ import { ui } from "@/i18n/ui";
 import Button from "@/components/ui/Button.astro";
 import ArrowUp from "@/components/ui/icons/ArrowUp.astro";
 import Socials from "@/components/ui/socials.astro";
+import Navigation from "../ui/Navigation.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -29,7 +30,14 @@ const content = t("footer.content") as (typeof ui)["en"]["footer.content"];
           ))
         }
       </div>
-      <Socials iconSize="sm" />
+      <div class="space-y-2">
+        <Socials
+          iconSize="sm"
+          showName={false}
+          class="justify-center lg:justify-end"
+        />
+        <Navigation />
+      </div>
       <Button
         as="a"
         href={"#hero"}

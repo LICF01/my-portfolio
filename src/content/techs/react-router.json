@@ -2,7 +2,7 @@
   "name": "React Router",
   "url": "https://reactrouter.com/en/main",
   "icon": {
-    "type": "",
-    "src": ""
+    "type": "fontsource",
+    "src": "simple-icons:reactrouter"
   }
 }

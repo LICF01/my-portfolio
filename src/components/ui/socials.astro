@@ -1,4 +1,5 @@
 ---
+import { twMerge } from "tailwind-merge";
 import Button from "@/components/ui/Button.astro";
 import { getCollection } from "astro:content";
 import Icon, { type IconProps } from "@/components/ui/Icon.astro";
@@ -6,25 +7,27 @@ import Icon, { type IconProps } from "@/components/ui/Icon.astro";
 const socials = await getCollection("socials");
 
 type Props = {
-  showLabel?: boolean;
   showName?: boolean;
+  showIcon?: boolean;
   iconSize?: IconProps["size"];
+  class?: string;
 };
 
 const {
-  showLabel = true,
-  showName: showName = true,
+  showName = true,
+  showIcon = true,
   iconSize = "md",
+  class: className,
 } = Astro.props as Props;
 ---
 
-<ul class="flex gap-2">
+<ul class={twMerge("flex gap-2", className)}>
   {
     socials.map(({ data }) => (
       <li>
         <Button as="a" variant="ghost" href={data.url} target="_blank">
-          {showName && <Icon name={data.icon} size={iconSize} />}
-          {showLabel && <span class="ml-2">{data.name}</span>}
+          {showIcon && <Icon name={data.icon} size={iconSize} />}
+          {showName && <span class="ml-2">{data.name}</span>}
         </Button>
       </li>
     ))
