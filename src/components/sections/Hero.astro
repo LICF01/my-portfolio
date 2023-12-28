@@ -1,9 +1,11 @@
 ---
-import SectionWrapper from "../ui/SectionWrapper.astro";
-import Text from "../ui/Text.astro";
-import Divider from "../ui/Divider.astro";
+import SectionWrapper from "@/components/ui/SectionWrapper.astro";
+import Text from "@/components/ui/Text.astro";
+import Divider from "@/components/ui/Divider.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import DownloadCV from "@/components/ui/DownloadCV.astro";
+import Socials from "@/components/ui/socials.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -32,9 +34,13 @@ const description = t("hero.description");
       <br />
       {rest}
     </Text>
-    <Divider />
     <Text as="p" variant="lead" class="text-lg">
       {description}
     </Text>
+    <Divider />
+    <div class="flex gap-2">
+      <Socials showLabel={false} />
+      <DownloadCV />
+    </div>
   </div>
 </SectionWrapper>

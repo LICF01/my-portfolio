@@ -1,0 +1,32 @@
+---
+import Button from "@/components/ui/Button.astro";
+import { getCollection } from "astro:content";
+import Icon, { type IconProps } from "@/components/ui/Icon.astro";
+
+const socials = await getCollection("socials");
+
+type Props = {
+  showLabel?: boolean;
+  showName?: boolean;
+  iconSize?: IconProps["size"];
+};
+
+const {
+  showLabel = true,
+  showName: showName = true,
+  iconSize = "md",
+} = Astro.props as Props;
+---
+
+<ul class="flex gap-2">
+  {
+    socials.map(({ data }) => (
+      <li>
+        <Button as="a" variant="ghost" href={data.url} target="_blank">
+          {showName && <Icon name={data.icon} size={iconSize} />}
+          {showLabel && <span class="ml-2">{data.name}</span>}
+        </Button>
+      </li>
+    ))
+  }
+</ul>

@@ -8,18 +8,20 @@ const { data, class: className } = Astro.props;
 const technologies = await getEntries(data);
 ---
 
-<div class={twMerge("flex  flex-wrap", className)}>
+<ul class={twMerge("flex  flex-wrap", className)}>
   {
     technologies?.map(({ data }: { data: any }) => (
-      <Button
-        as="a"
-        variant="ghost"
-        href={data.url}
-        target="_blank"
-        class="text-sm p-2 font-normal"
-      >
-        {data.name}
-      </Button>
+      <li>
+        <Button
+          as="a"
+          variant="ghost"
+          href={data.url}
+          target="_blank"
+          class="text-sm p-2 font-normal"
+        >
+          {data.name}
+        </Button>
+      </li>
     ))
   }
-</div>
+</ul>

@@ -66,10 +66,20 @@ const aboutSchema = defineCollection({
   }),
 });
 
+const socialsSchema = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    url: z.string().url(),
+    icon: z.string(),
+  }),
+});
+
 export const collections = {
   projects: projectsSchema,
   techs: techsSchema,
   experience: experienceSchema,
   education: educationSchema,
   about: aboutSchema,
+  socials: socialsSchema,
 };

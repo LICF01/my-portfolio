@@ -1,14 +1,12 @@
 ---
 import Container from "../ui/Container.astro";
-import Logo from "../ui/Logo.astro";
-import Navigation from "../ui/Navigation.astro";
 import Text from "../ui/Text.astro";
-import Divider from "../ui/Divider.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ui } from "@/i18n/ui";
 import Button from "@/components/ui/Button.astro";
 import ArrowUp from "@/components/ui/icons/ArrowUp.astro";
+import Socials from "@/components/ui/socials.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -19,19 +17,24 @@ const content = t("footer.content") as (typeof ui)["en"]["footer.content"];
   class="w-full bg-background/30 backdrop-blur-lg mt-16 border-t border-foreground/10"
 >
   <Container>
-    <footer class="my-12 flex flex-col justify-center items center">
-      {
-        content.map((item: string) => (
-          <Text as="p" class="text-center text-xs lg:text-sm">
-            {item}
-          </Text>
-        ))
-      }
+    <footer
+      class="my-12 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start gap-4"
+    >
+      <div>
+        {
+          content.map((item: string) => (
+            <Text as="p" class="text-xs lg:text-sm text-center lg:text-left">
+              {item}
+            </Text>
+          ))
+        }
+      </div>
+      <Socials iconSize="sm" />
       <Button
         as="a"
         href={"#hero"}
         variant="link"
-        class="mt-6 text-foreground/70 lg:hidden font-normal"
+        class="text-foreground/70 lg:hidden font-normal"
       >
         <ArrowUp />
          Back to top
