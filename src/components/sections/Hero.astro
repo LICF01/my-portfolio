@@ -13,12 +13,11 @@ const t = useTranslations(lang);
 const greet = t("hero.greet");
 const name = t("hero.name");
 const role = t("hero.role");
-const rest = t("hero.rest");
 const description = t("hero.description");
 ---
 
 <SectionWrapper
-  class="relative max-w-6xl min-h-[calc(100vh-75px)]"
+  class="relative max-w-6xl min-h-[calc(100vh-75px)] justify-center"
   title="hero"
   divider={false}
 >
@@ -31,9 +30,8 @@ const description = t("hero.description");
       {name}
       <br />
       <span class="text-accent"> {role}</span>
-      <br />
-      {rest}
     </Text>
+    <br />
     <Text as="p" variant="lead" class="text-lg">
       {description}
     </Text>

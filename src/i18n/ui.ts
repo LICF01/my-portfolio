@@ -18,9 +18,8 @@ export const ui = {
     "hero.greet": "Hi there!",
     "hero.name": "I'm Lucas",
     "hero.role": "Front‑End Developer",
-    "hero.rest": "with over 3 years of experience",
     "hero.description":
-      "Dedicated to bringing designs to reality with modern technologies and attention to detail",
+      "Building responsive user interfaces with React, Typescript and any css framework",
     "about.title": "about",
     "about.description": "A little bit about me",
     "about.content": [
@@ -56,9 +55,8 @@ export const ui = {
     "hero.greet": "¡Hola!",
     "hero.name": "Soy Lucas",
     "hero.role": "Desarrollador Front‑End",
-    "hero.rest": "con más de 3 años de experiencia",
     "hero.description":
-      "Dedicado a llevar diseños a la realidad con tecnologías modernas y atención al detalle",
+      "Construyendo interfaces de usuario responsivas con React, Typescript y cualquier framework de css",
     "about.title": "Acerca de",
     "about.description": "Para saber un poco más de mi",
     "about.content": [
