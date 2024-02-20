@@ -23,22 +23,24 @@ const titleId = title?.replace(/\s/g, "_").toLowerCase();
     className,
   )}
 >
-  <header>
-    {
-      title && title !== "hero" && (
-        <Text id={`${titleId}-title`} as="h2" variant="title">
-          {title}
-        </Text>
-      )
-    }
-    {
-      description && (
-        <Text as="p" variant="normal">
-          {description}
-        </Text>
-      )
-    }
-  </header>
-  {divider && <Divider />}
-  <slot />
+  <div class="reveal">
+    <header>
+      {
+        title && title !== "hero" && (
+          <Text id={`${titleId}-title`} as="h2" variant="title">
+            {title}
+          </Text>
+        )
+      }
+      {
+        description && (
+          <Text as="p" variant="normal">
+            {description}
+          </Text>
+        )
+      }
+    </header>
+    {divider && <Divider />}
+    <slot />
+  </div>
 </section>

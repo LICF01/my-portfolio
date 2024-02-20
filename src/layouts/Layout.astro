@@ -70,6 +70,44 @@ const t = useTranslations(lang);
           backToTopButton.classList.remove("opacity-100");
         }
       });
+
+      const elements = document.querySelectorAll(".reveal");
+
+      for (let i = 0; i < elements.length; i++) {
+        const card = elements[i];
+        card.classList.add(
+          ..."relative opacity-0 translate-y-60 trasiton-all duration-1000 ease".split(
+            " ",
+          ),
+        );
+      }
+
+      function scrollReveal() {
+        for (let i = 0; i < elements.length; i++) {
+          const card = elements[i];
+          const windowHeight = window.innerHeight;
+          const cardTop = card.getBoundingClientRect().top;
+          const revealPosition = 150;
+
+          if (cardTop < windowHeight - revealPosition) {
+            elements[i].classList.add(
+              ..."opacity-100 translate-y-0".split(" "),
+            );
+            elements[i].classList.remove(
+              ..."opacity-0 translate-y-60".split(" "),
+            );
+          } else {
+            elements[i].classList.remove(
+              ..."opacity-100 translate-y-0".split(" "),
+            );
+            elements[i].classList.add(..."opacity-0 translate-y-60".split(" "));
+          }
+        }
+      }
+
+      window.addEventListener("scroll", scrollReveal);
+
+      scrollReveal();
     </script>
   </body>
 </html>
