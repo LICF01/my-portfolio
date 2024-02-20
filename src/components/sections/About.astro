@@ -6,6 +6,7 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { filterByLang } from "@/utils/collections";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import Technologies from "../ui/Technologies.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,16 +15,20 @@ const about = await getCollection("about", ({ data }) =>
   filterByLang({ data, lang }),
 );
 
+const techs = await getCollection("techs");
+
 const { Content } = await about[0].render();
 const { title, description } = about[0].data;
 ---
 
 <SectionWrapper title={title} description={description || undefined}>
-  {
-    (
-      <div class="prose prose-base max-w-none prose-p:text-foreground/70 prose-p:mt-0 prose-p:mb-4 prose-strong:text-foreground/90 prose-li:mt-0 prose-li:mb-1">
-        <Content />
-      </div>
-    )
-  }
+  <div
+    class="prose prose-base max-w-none prose-p:text-foreground/70 prose-p:mt-0 prose-p:mb-4 prose-strong:text-foreground/90 prose-li:mt-0 prose-li:mb-1"
+  >
+    <Content />
+  </div>
+
+  <div class="my-8">
+    <Technologies data={techs} variant="outline-dimmed" />
+  </div>
 </SectionWrapper>
