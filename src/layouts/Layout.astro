@@ -74,8 +74,8 @@ const t = useTranslations(lang);
       const elements = document.querySelectorAll(".reveal");
 
       for (let i = 0; i < elements.length; i++) {
-        const card = elements[i];
-        card.classList.add(
+        const element = elements[i];
+        element.classList.add(
           ..."relative opacity-0 translate-y-60 trasiton-all duration-1000 ease".split(
             " ",
           ),
@@ -84,12 +84,12 @@ const t = useTranslations(lang);
 
       function scrollReveal() {
         for (let i = 0; i < elements.length; i++) {
-          const card = elements[i];
+          const element = elements[i];
           const windowHeight = window.innerHeight;
-          const cardTop = card.getBoundingClientRect().top;
-          const revealPosition = 150;
+          const elementTop = element.getBoundingClientRect().top;
+          const revealPosition = 0;
 
-          if (cardTop < windowHeight - revealPosition) {
+          if (elementTop < windowHeight - revealPosition) {
             elements[i].classList.add(
               ..."opacity-100 translate-y-0".split(" "),
             );
