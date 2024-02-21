@@ -25,7 +25,13 @@ const {
   {
     socials.map(({ data }) => (
       <li>
-        <Button as="a" variant="ghost" href={data.url} target="_blank">
+        <Button
+          as="a"
+          variant="ghost"
+          href={data.url}
+          target="_blank"
+          aria-label={`${data.name} social button`}
+        >
           {showIcon && <Icon name={data.icon} size={iconSize} />}
           {showName && <span class="ml-2">{data.name}</span>}
         </Button>
