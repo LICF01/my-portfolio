@@ -21,18 +21,16 @@ const description = t("hero.description");
   title="hero"
   divider={false}
 >
-  <div class="flex flex-col justify-center gap-2 mb-32">
+  <div class="flex flex-col justify-center mb-32 gap-2">
+    <Text as="p" variant="lead" class="text-foreground/70">
+      {greet}
+    </Text>
     <Text as="h1" variant="hero">
-      <span class="text-2xl text-foreground/70">
-        {greet}
-      </span>
-      <br />
       {name}
       <br />
       <span class="text-accent"> {role}</span>
     </Text>
-    <br />
-    <Text as="p" variant="lead" class="text-lg">
+    <Text as="p" variant="lead" class="text-sm md:text-lg">
       {description}
     </Text>
     <Divider />
