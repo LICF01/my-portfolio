@@ -2,7 +2,7 @@
 
 This portfolio is crafted using Astro and leverages Astro's content collection feature for content management and internationalization.
 
-![Live at lucascubilla.dev](https://www.lucascubilla.dev/)
+[Live at lucascubilla.dev](https://www.lucascubilla.dev/)
 
 ![image](https://github.com/LICF01/my-portfolio/assets/41651420/e5275bca-748d-4cac-b45d-55069093bfa2)
 
